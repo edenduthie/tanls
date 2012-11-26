@@ -1,0 +1,16 @@
+<div class="single-page-content grey-back">
+    <div class="diagonal"><img ng-src="{{baseUrl}}/resources/images/diagonal.svg"></img></div>
+    <form name="signupForm">
+        <h1>Sign Up or <a href="#!/login">Log In</a></h1>
+        <a class="error-box" ng-show="error" ng-click="error=false" title="close">{{errorMessage}}</a>
+        <div class="radio-field">
+            <div class="radio-container" ng-click="setAsLawyer(false)"><div class="radio" ng-class="radioClassUser"></div>I use legal services</div>
+            <div class="radio-container" ng-click="setAsLawyer(true)"><div class="radio" ng-class="radioClassLawyer"></div>I'm a lawyer</div>
+        </div>
+        <div class="input-field"><label>Email</label><input type="email" required="true" ng-model="signupUser.email"></div>
+        <div class="input-field"><label>Password</label><input type="password" required="true" ng-model="signupUser.password"></div>
+        <div class="input-field"><label>Repeat</label><input type="password" required="true" ng-model="signupUser.repeatPassword"></div>
+        <div class="input-field"><input type="checkbox" ng-model="signupUser.acceptTerms"><span class="checkbox-label" checked="true">I accept the <a href="#!/terms" title="Terms and Conditions" target="_blank">Terms and Conditions</a></span></div>
+        <button class="blue" ng-click="signup()" href="javascript:void(0)" ng-disabled="signupForm.$invalid || isUnchanged(signupUser) || !signupUser.acceptTerms">Signup</button>
+    </form>
+</div>
