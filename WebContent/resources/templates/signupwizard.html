@@ -1,0 +1,99 @@
+<div ng-controller="EditCtrl">
+<div ng-show="showWizard">
+<div class="sign-up-wizard" ng-switch="lawyer.currentSignUpStage" ng-init="init(true)">
+   <div ng-switch-when="1" class="popup" popup-resize>
+        <a class="close" title="close" close></a>
+	    <h3>Welcome to Easy Law!</h3>
+	    <h4>Get started building your online legal profile.</h4>
+	    <form name="editForm1">
+	        <a class="error-box" ng-show="error" ng-click="error=false" title="close">{{errorMessage}}</a>
+            <a class="success-box" ng-show="success" ng-click="success=false" title="close">{{successMessage}}</a>
+	        <div class="input-field"><label>Name</label><input type="text" required="true" ng-model="lawyer.name" ng-change="clear()" ng-maxlength="40" ng-pattern="/^[a-zA-Z0-9 _-]+$/"></div>
+            <div class="input-field"><label>Username <a href="#!/lawyers/{{lawyer.username}}">www.easylaw.com.au/#!/lawyers/{{lawyer.username}}</a></label><input type="text" required="true" ng-model="lawyer.username" ng-change="clear()" ng-maxlength="40" ng-pattern="/^[a-zA-Z0-9_-]*$/"></div>
+            <div class="input-field"><label>Practitioner Number</label><input type="text" required="true" ng-model="lawyer.practitionerNumber" ng-change="clear()" ng-maxlength="50"></div>
+            <button class="blue" ng-click="edit()" href="javascript:void(0)" ng-disabled="editForm1.$invalid || isUnchanged(lawyer)">Next Step</button>
+        </form>
+   </div>
+   <div ng-switch-when="2" class="popup" popup-resize>
+        <a class="close" title="close" close></a>
+	    <h3>Thanks for that, your profile is now live.</h3>
+	    <h4>Please upload a profile photo</h4>
+	    <form name="editForm5">
+	        <div class="center-photo">
+		        <div class="photo">
+			        <div class="photo-container" resizable-image="lawyer.profilePhoto" resize-x="true"></div>
+		        </div>
+		        <div class="fine-uploader" fineuploader="profile"></div>
+	        </div>
+	        <a class="skip-link" href="javascript:void(0)" ng-click="skip()">Skip this step</a>
+            <button class="blue" ng-click="edit()" href="javascript:void(0)" ng-disabled="editForm5.$invalid || isUnchanged(lawyer)">Next Step</button>
+        </form>
+   </div>
+   <div ng-switch-when="3" class="popup" popup-resize>
+        <a class="close" title="close" close></a>
+	    <h3>Thanks for that, your profile is now live.</h3>
+	    <h4>Please enter the following additional details</h4>
+	    <form name="editForm2">
+	        <div class="input-field"><label>When were you admitted to practice?</label><input type="text" ui-date="dateOptions" ng-model="lawyer.timeAdmitted" ng-change="clear()" tooltip="This is set to today's date so please select your date of admission, an approximate date is fine. Select a day from the calendar or enter in dd/mm/yyyy format."></input></div>
+            <div class="input-field"><label>State</label><div class="styled-select"><select ng-model="lawyer.state" ng-options="state for state in states"></select></div></div>
+            <!-- <div class="input-field"><label>Your Webpage URL: <a href="{{lawyer.url}}" title="your webpage" target="_blank">{{lawyer.url}}</a></label><input type="url" ng-model="lawyer.url" ng-change="clear()" ng-maxlength="200"></div> -->
+            <div class="input-field"><label>Firm Name</label><input type="text" ng-model="lawyer.firmName" ng-change="clear()" ng-maxlength="100" tooltip="Optional"></input></div>
+            <div class="input-field"><label>Your Firm's URL: <a href="{{lawyer.firmUrl}}" title="your firm's webpage" target="_blank">{{lawyer.firmUrl}}</a></label><input type="url" ng-model="lawyer.firmUrl" ng-change="clear()" ng-maxlength="200" tooltip="Optionally enter the url of your firm starting with http://"></input></div>
+            <div class="input-field"><label>A Summary of Your Career</label><textarea ng-model="lawyer.summary" ng-maxlength="4000" tooltip="Please enter a brief summary of your career. Your career history will be added later under the Career section of your profile."></textarea></div>
+            <a class="skip-link" href="javascript:void(0)" ng-click="skip()">Skip this step</a>
+            <button class="blue" ng-click="edit()" href="javascript:void(0)" ng-disabled="editForm2.$invalid || isUnchanged(lawyer)">Next Step</button>
+        </form>
+   </div>
+   <div ng-switch-when="4" class="popup" popup-resize>
+        <a class="close" title="close" close></a>
+	    <h3>Almost there!</h3>
+	    <h4>Which areas of law to you practise in?</h4>
+	    <form name="editForm3">
+	        <table class="area-of-practise-input">
+	            <tr>
+	               <td><label>Select an area:</label></td>
+	               <td></td>
+	               <td class="longer"><label>or add a new area</label></td>
+	               <td></td>
+	            </tr>
+	            <tr>
+	               <td>
+	                   <div class="styled-select left">
+		                   <select ng-options="a as a.name for a in areasOrPractise" ng-model="areaOfPractise"></select>
+		               </div>
+	               </td>
+	               <td><a class="add-area-of-pracise" ng-click="addArea(areaOfPractise)">Add</a></td>
+	               <td class="longer"><input type="text" ng-model="newAreaOfPractise"></input></td>
+	               <td><a class="add-area-of-pracise" ng-click="addNewArea(newAreaOfPractise)">Add</a></td>
+	            </tr>
+	        </table>
+	        <table class="areas-of-practise">
+	            <tr ng-repeat="area in lawyer.areasOfPractise">
+	                <td class="area-name">{{area.name}}</td>
+	                <td class="close" ng-click="closeArea($index)"></td>
+	            </tr>
+	        </table>
+            <a class="skip-link" href="javascript:void(0)" ng-click="skip()">Skip this step</a>
+            <button class="blue" ng-click="edit()" href="javascript:void(0)" ng-disabled="editForm3.$invalid || isUnchanged(lawyer)">Done</button>
+        </form>
+   </div>
+   <div ng-switch-when="5" class="popup" popup-resize>
+        <a class="close" title="close" close></a>
+	    <h3>Welcome to your Easy Law legal profile!</h3>
+	    <h4>You have successfully increased your professional presence on the web.</h4>
+	    <h4>Go ahead and share it with your friends and colleagues to spread the word:</h4>
+	    <iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.easylaw.com.au%2Ffriendly%2Flawyers%2F{{lawyer.username}}&amp;send=false&amp;layout=standard&amp;width=450&amp;show_faces=false&amp;font=lucida+grande&amp;colorscheme=light&amp;action=like&amp;height=35&amp;appId=395700200510991" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:25px;" allowTransparency="true"></iframe>
+	    <iframe allowtransparency="true" frameborder="0" scrolling="no" src="https://platform.twitter.com/widgets/tweet_button.html?url=https%3A%2F%2Fwww.easylaw.com.au%2Ffriendly%2Flawyers%2F{{lawyer.username}}" style="width:130px; height:20px;"></iframe>
+	    <h4>Easy Law's Q&A and marketplace services are coming soon. In the meantime add to your profile by:</h4>
+	    <ul>
+	        <li>Uploading banner and profile photos</li>
+	        <li>Writing something on your timeline</li>
+	        <li>Adding a job or education to your career profile</li>
+	    </ul>
+	    <form name="editForm4">
+            <button class="blue" ng-click="edit()" href="javascript:void(0)">Close</button>
+        </form>
+   </div>
+</div>
+</div>
+</div>
