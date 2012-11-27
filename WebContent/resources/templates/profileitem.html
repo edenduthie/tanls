@@ -1,0 +1,81 @@
+<div ng-controller="ProfileItemCtrl" ng-init="init(profileItem)">
+	<div class="timeline-item-controls" ng-show="profileItem.type!='FEEDBACK'">
+		<a class="close" ng-click="remove(profileItem)"></a>
+	</div>
+	<div ng-switch="profileItem.type">
+		<div ng-switch-when="JOB" class="job">
+			<h1><div editable><div class="original">{{profileItem.title}}</div><input class="edit" type="text" ng-model="profileItem.title" required="true"></input></div></h1>
+			<h2><div editable><div class="original">{{profileItem.subtitle}}</div><input class="edit" type="text" ng-model="profileItem.subtitle" required="true"></input></div></h2>
+			<h3 class="date-field">
+			    <div editable class="date-editable"><div class="original">{{profileItem.startTime | date:'MMM yyyy'}}</div><input ui-date="dateOptions" class="edit" type="text" ng-model="profileItem.startTime" required="true"></input></div>
+			    <div class="to">to</div>
+				<div editable class="date-editable"><div class="original">{{profileItem.endTime | date:'MMM yyyy' | blankWithCurrent}}</div><input ui-date="dateOptions" class="edit" type="text" ng-model="profileItem.endTime" required="true"></input></div>
+			</h3>
+			<div editable><p class="original" ng-bind-html-unsafe="profileItem.text | noHTML | newlines"></p><textarea class="edit no-enter" type="text" ng-model="profileItem.text" required="true"></textarea></div>
+		</div>
+		<div ng-switch-when="EDUCATION" class="education">
+			<div class="wrapper">
+				<h1><div editable><div class="original">{{profileItem.title}}</div><input class="edit" type="text" ng-model="profileItem.title" required="true"></input></div></h1>
+			</div>
+			<h2><div editable><div class="original">{{profileItem.subtitle}}</div><input class="edit left-margin" type="text" ng-model="profileItem.subtitle" required="true"></input></div></h2>
+			<div class="graduation-date">
+				<div class="left">Graduated</div>
+				<div editable class="date-editable blue"><div class="original">{{profileItem.endTime |date:'MMMM yyyy'}}</div><input ui-date="dateOptions" class="edit" type="text" ng-model="profileItem.endTime" required="true"></input></div>
+			</div>
+			<div editable><p class="original" ng-bind-html-unsafe="profileItem.text | noHTML | newlines"></p><textarea class="edit no-enter left-margin" type="text" ng-model="profileItem.text" required="true"></textarea></div>
+		</div>
+		<div ng-switch-when="STATUS_UPDATE" class="status">
+			<div class="heading">
+				<img ng-show="lawyer.profilePhoto.id" class="post-photo"
+					ng-src="{{baseUrl}}/photo/{{lawyer.profilePhoto.id}}"></img>
+				<div ng-show="!lawyer.profilePhoto.id" class="small-photo"></div>
+				<div class="details">
+					<p>
+						<b>{{lawyer.name}}</b> posted
+					</p>
+					<p class="float-left">{{profileItem.timelineTime | timeelapsed}} ago</p>
+					<a class="public float-left" title="public"></a>
+				</div>
+			</div>
+			<div editable><p class="original" ng-bind-html-unsafe="profileItem.text | noHTML | newlines"></p><textarea class="edit no-enter" type="text" ng-model="profileItem.text" required="true"></textarea></div>
+		</div>
+	    <div ng-switch-when="ARTICLE" class="status">
+           <div class="heading">
+              <a class="edit" ng-click="showPopup()">Edit</a>
+              <img ng-show="lawyer.profilePhoto.id" class="post-photo" ng-src="{{baseUrl}}/photo/{{lawyer.profilePhoto.id}}"></img>
+              <div ng-show="!lawyer.profilePhoto.id" class="small-photo"></div>
+                <div class="details">
+                   <p><b>{{lawyer.name}}</b> posted</p>
+                   <p class="float-left">{{profileItem.timelineTime | timeelapsed}} ago</p><a class="public float-left" title="public"></a>
+               </div>
+           </div>
+           <h1>{{profileItem.title}}</h1>
+           <h2 ng-show="profileItem.subtitle && profileItem.subtitle.length > 0">{{profileItem.subtitle}}</h2>
+           <div class="article-content-summary" ng-bind-html-unsafe="profileItem.text"></div>
+           <a class="read-full-article" href="#!/articles/{{profileItem.title}}">Read full article</a>
+           <div class="popup article-form-popup" popup-resize>
+	           <a class="close" title="close" ng-click="hidePopup()"></a>
+	           <form name="submitArticleForm" class="job-form">
+	               <h4>Edit your article</h4>
+	               <div class="input-field"><label>Title</label><input class="smaller" type="text" required="true" ng-model="profileItem.title" ng-maxlength="500"></div>
+	               <div class="input-field"><label>Subtitle</label><input class="smaller" type="text" ng-model="profileItem.subtitle" ng-maxlength="500"></div>
+	                <div class="input-field"><label>Content</label><textarea ckeditor ng-model="profileItem.text" ng-maxlength="50000"></textarea></div>
+	               <button class="pink" ng-click="editArticle()" href="javascript:void(0)" popupResize>Update</button>
+	           </form>
+	       </div>
+       </div>
+	   <div ng-switch-when="FEEDBACK" class="status">
+           <div class="heading">
+              <div class="score" ng-class="{'negative':profileItem.rating < 5}">
+                  <div class="result">{{profileItem.rating}}</div>
+                  <div class="out-of">10</div>
+              </div>
+              <div class="details">
+                  <p><b>{{profileItem.customer.name}}</b> posted</p>
+                  <p class="float-left">{{profileItem.timelineTime | timeelapsed}} ago</p><a class="public float-left" title="public"></a>
+              </div>
+          </div>
+          <p ng-bind-html-unsafe="profileItem.text | noHTML | newlines"></p>
+      </div>
+	</div>
+</div>
