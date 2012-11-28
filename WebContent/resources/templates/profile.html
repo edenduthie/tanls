@@ -1,0 +1,170 @@
+<span ng-switch="isLawyer">
+    <div ng-switch-when="true" ng-include="'resources/templates/signupwizard.html'"></div>
+</span>
+<div class="content-width top-line">
+	<div class="profile">
+	    <div ng-include="'resources/templates/lawyermenu.html'"></div>
+	    <div class="header">
+	        <div class="background-image" resizable-image="lawyer.backgroundPhoto" resize-x="true" resize-y="true" background-photo="lawyer.backgroundPhoto">
+	            <div class="upload-banner" ng-show="isLawyer" popup>Upload banner photo</div>
+	            <div class="popup">
+	                <a class="close" title="close" close></a>
+	                <h4>Upload a Banner Photo</h4>
+                    <div class="fine-uploader" fineuploader="background" fineclose="true"></div>
+	            </div>
+	        </div>
+	        <div class="photo">
+	            <div class="photo-container" resizable-image="lawyer.profilePhoto" resize-x="true">
+	                <div class="upload-profile" ng-show="isLawyer" popup></div>
+	                <div class="popup">
+	                    <a class="close" title="close" close></a>
+	                    <h4>Upload a Profile Photo</h4>
+                        <div class="fine-uploader" fineuploader="profile" fineclose="true"></div>
+	                </div>
+	            </div>
+	        </div>
+	        <div class="heading-bottom">
+	            <div class="first-line">
+	                <div class="right">
+	                    <div class="text-right">
+	                    <a href="{{lawyer.url}}" title="personal webpage" target="_blank">{{lawyer.url}}</a>
+	                    <h2 class="name">{{lawyer.firmName}}</h2>
+	                    <a href="{{lawyer.firmUrl}}" target="_blank" title="visit {{lawyer.firmName}}">{{lawyer.firmUrl}}</a>
+	                    </div>
+	                </div>
+	                <h1 class="name">{{lawyer.name}}</h1>
+	                <p>{{lawyer.points}} points, {{lawyer.percentagePositive | number:0}}%</p>
+	            </div>
+	            <div class="second-line">
+	                <div class="right">
+	                    <div class="social-media left">
+		                    <a class="facebook-grey" href="http://www.facebook.com/{{lawyer.facebook}}" target="_blank"></a>
+		                    <a class="twitter-grey" href="http://www.twitter.com/{{lawyer.twitter}}" target="_blank"></a>
+		                    <a class="linkedin-grey" target="_blank" href="{{lawyer.linkedin}}"></a>
+	                    </div>
+	                    <div class="state left">
+	                        <div class="australia"></div>
+	                        <p>{{lawyer.state}}</p>
+	                    </div>
+	                    <div class="admitted left">
+	                        <div class="admitted-date blue">
+	                            {{lawyer.timeAdmitted | timeelapsed}}
+	                        </div>
+	                        <div class="admitted-from left">
+	                            <a class="calendar"></a>
+	                            <div class="admitted-label left">Admitted {{lawyer.timeAdmitted | date:'MMMM yyyy'}}</div>
+	                        </div>
+	                    </div>
+	                </div>
+	                <div class="areas-of-practice-container" ng-show="lawyer.areasOfPractise && lawyer.areasOfPractise.length > 0 ">
+		                <h2>Areas of Practice</h2>
+		                <ul>
+		                    <li ng-repeat="area in lawyer.areasOfPractise">{{area.name}}</li>
+		                </ul>
+	                </div>
+	                <p>Practitioner Number: {{lawyer.practitionerNumber}}</p>
+	                <iframe ng-src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.easylaw.com.au%2Ffriendly%2Flawyers%2F{{lawyer.username}}&amp;send=false&amp;layout=standard&amp;width=450&amp;show_faces=false&amp;font=lucida+grande&amp;colorscheme=light&amp;action=like&amp;height=35&amp;appId=395700200510991" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:25px;" allowTransparency="true"></iframe>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+	<div class="timeline-container">
+	    <div class="timeline-right">
+		     <div class="timeline-element">
+	            <div ng-show="!isLawyer">
+	                <button class="pink fill" ng-click="goHome()">Ask our lawyers a question</button>
+	                <h4>More services launching here soon!</h4>
+	            </div>
+	            <div ng-show="isLawyer">
+	                <div ng-include="'resources/templates/addcareer.html'"></div>
+	            </div>
+	            <div class="info-box" ng-show="lawyer.summary">
+	                <div class="info-box-header">Summary</div>
+	                <div class="newlines" ng-bind-html-unsafe="lawyer.summary | noHTML | newlines"></div>
+	            </div>
+	        </div>
+		 </div>
+	    <div class="timeline-left">
+		    <nav class="timeline-element" nav-select>
+	            <ul>
+	                <li class="selected" ng-click="goTo('timeline')">Timeline</li>
+	                <li ng-click="goTo('career')">Career</li>
+	                <li ng-click="goTo('articles')">Articles</li>
+	                <li ng-click="goTo('reviews')">Reviews</li>
+	                <!--
+	                <li>Reviews</li>  -->
+	            </ul>
+	        </nav>
+	        <a class="error-box global" ng-show="globalError" ng-click="globalError=false" title="close">{{globalErrorMessage}}</a>
+	        <div class="timeline-element item" ng-repeat="profileItem in profileItems">
+	            <div ng-switch="isLawyer">
+	            <div ng-switch-when="true">
+                   <div ng-include="'resources/templates/profileitem.html'"></div>
+	            </div>
+	            <div ng-switch-when="false">
+		            <div ng-switch="profileItem.type">
+			            <div ng-switch-when="JOB" class="job">
+			                <h1>{{profileItem.title}}</h1>
+					        <h2>{{profileItem.subtitle}}</h2>
+					        <h3>{{profileItem.startTime | date:'MMM yyyy'}} to {{profileItem.endTime | date:'MMM yyyy' | blankWithCurrent}}</h3>
+					        <p ng-bind-html-unsafe="profileItem.text | noHTML | newlines"></p>
+			            </div>
+			            <div ng-switch-when="EDUCATION" class="education">
+					        <div class="wrapper"><h1>{{profileItem.title}}</h1></div>
+					        <h2>{{profileItem.subtitle}}</h2>
+					        <p>Graduated <span class="blue">{{profileItem.endTime | date:'MMMM yyyy'}}</span></p>
+					        <p ng-bind-html-unsafe="profileItem.text | noHTML | newlines"></p>
+			            </div>
+			            <div ng-switch-when="STATUS_UPDATE" class="status">
+				            <div class="heading">
+			                    <img ng-show="lawyer.profilePhoto.id" class="post-photo" ng-src="{{baseUrl}}/photo/{{lawyer.profilePhoto.id}}"></img>
+			                    <div ng-show="!lawyer.profilePhoto.id" class="small-photo"></div>
+			                    <div class="details">
+			                        <p><b>{{lawyer.name}}</b> posted</p>
+			                        <p class="float-left">{{profileItem.timelineTime | timeelapsed}} ago</p><a class="public float-left" title="public"></a>
+			                    </div>
+			                </div>
+			                <p ng-bind-html-unsafe="profileItem.text | noHTML | newlines"></p>
+			            </div>
+						<div ng-switch-when="ARTICLE" class="status">
+							<div class="heading">
+								<img ng-show="lawyer.profilePhoto.id" class="post-photo"
+									ng-src="{{baseUrl}}/photo/{{lawyer.profilePhoto.id}}"></img>
+								<div ng-show="!lawyer.profilePhoto.id" class="small-photo"></div>
+								<div class="details">
+									<p>
+										<b>{{lawyer.name}}</b> posted
+									</p>
+									<p class="float-left">{{profileItem.timelineTime |
+										timeelapsed}} ago</p>
+									<a class="public float-left" title="public"></a>
+								</div>
+							</div>
+							<h1>{{profileItem.title}}</h1>
+							<h2 ng-show="profileItem.subtitle && profileItem.subtitle.length > 0">{{profileItem.subtitle}}</h2>
+							<div class="article-content-summary" ng-bind-html-unsafe="profileItem.text"></div>
+							<a class="read-full-article" href="#!/articles/{{profileItem.title}}">Read full article</a>
+						</div>
+						<div ng-switch-when="FEEDBACK" class="status">
+				            <div class="heading">
+			                    <div class="score" ng-class="{'negative':profileItem.rating < 5}">
+                                    <div class="result">{{profileItem.rating}}</div>
+                                    <div class="out-of">10</div>
+                                </div>
+			                    <div class="details">
+			                        <p><b>{{profileItem.customer.name}}</b> posted</p>
+			                        <p class="float-left">{{profileItem.timelineTime | timeelapsed}} ago</p><a class="public float-left" title="public"></a>
+			                    </div>
+			                </div>
+			                <p ng-bind-html-unsafe="profileItem.text | noHTML | newlines"></p>
+			            </div>
+						</div>
+	            </div>
+	            </div>
+	        </div>
+	        <div class="loading" ng-show="loading"></div>
+		 </div>
+    </div>
+</div>
+
+<div id="fb-root"></div>
