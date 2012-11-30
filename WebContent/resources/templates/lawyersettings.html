@@ -1,0 +1,23 @@
+<div class="top-line">
+<div class="profile-width">
+    <div ng-include src="'resources/templates/lawyermenu.html'" onload="editProfile=true"></div>
+</div>
+<div class="single-page-content grey-back">
+    <div class="diagonal"><img ng-src="{{baseUrl}}/resources/images/diagonal.svg"></img></div>
+    <div class="account-settings">
+	    <h1>Your Account Settings</h1>
+	    <div ng-include src="'resources/templates/emailpasswordform.html'"></div>
+	    <form name="lawyerProfileSettingsForm">
+	        <h2>Configuration</h2>
+	        <a class="error-box" ng-show="globalError" ng-click="globalError=false" title="close">{{globalErrorMessage}}</a>
+            <a class="success-box" ng-show="globalSuccess" ng-click="globalSuccess=false" title="close">{{globalSuccessMessage}}</a>
+	                    <div class="input-field"><label>ABN</label><input type="text" ng-model="lawyer.abn" maxlength="200" tooltip="Please provide your ABN to be displayed on receipts and tax invoices."></input></div>
+	        <div class="input-field"><label>BSB (important)</label><input type="text" ng-model="lawyer.bsb" maxlength="200" tooltip="The BSB number of the bank account into which you will receive payments (this must be an Australian bank account). It is up to you to make sure that this is correct and up to date so you can receive payments!"></input></div>
+	        <div class="input-field"><label>Bank Account Number (important)</label><input type="text" ng-model="lawyer.accountNumber" maxlength="200" tooltip="The account number into which you will receive payments (this must be an Australian bank account).  It is up to you to make sure that this is correct and up to date so you can receive payments!"></input></div>
+	        <div class="input-field bottom-margin"><input type="checkbox" ng-model="lawyer.gst"><span class="checkbox-label" >Check this box if you are registered for GST</span></div>
+	        <div class="input-field"><input type="checkbox" ng-model="lawyer.questionNotifications"><span class="checkbox-label" checked="true">Receive questions via email</span></div>
+	        <button class="blue" ng-click="edit()" href="javascript:void(0)" ng-disabled="lawyerProfileSettingsForm.$invalid || isUnchanged(lawyer)">Save Changes</button>
+	    </form>
+    </div>
+</div>
+</div>
