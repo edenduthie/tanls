@@ -1,0 +1,11 @@
+<div class="single-page-content grey-back">
+    <div class="diagonal"><img ng-src="{{baseUrl}}/resources/images/diagonal.svg"></img></div>
+    <form name="loginForm" class="login-form">
+        <h2 ng-show="loginMessage">{{loginMessage}}</h2>
+        <h1>Please Log In or <a href="#!/signup">Sign Up</a></h1>
+        <a class="error-box" ng-show="error" ng-click="error=false" title="close">{{errorMessage}}</a>
+        <div class="input-field"><label>Email</label><input type="email" required="true" ng-model="loginUser.email"></div>
+        <div class="input-field"><label>Password</label><input type="password" required="true" ng-model="loginUser.password"></div>
+        <button class="blue" ng-click="login()" href="javascript:void(0)" ng-disabled="loginForm.$invalid || isUnchanged(loginUser)">Login</button>
+    </form>
+</div>
