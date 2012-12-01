@@ -1,0 +1,13 @@
+<div class="lawyer-menu" ng-show="isLawyer">
+    <div class="buttons">
+        <a ng-show="!editProfile" href="#!/lawyer/edit" title="edit profile" class="white-button profile-icon">Edit Profile</a>
+        <a ng-show="editProfile" href="#!/lawyer/profile" title="profile" class="white-button profile-icon">Profile</a>
+        <a href="#!/lawyer/questions" title="questions" class="white-button questions-icon">Questions</a>
+        <a href="#!/lawyer/files" title="questions" class="white-button files-icon">Bookings</a>
+        <a href="#!/lawyer/settings" title="settings" class="white-button settings-icon">Settings</a>
+    </div>
+    <div class="username-field">
+        <a ng-show="modified" title="save changes" class="white-button profile-icon" ng-click="edit()">Save Changes</a>
+        Welcome <a href="#!/lawyers/{{lawyer.username}}">{{lawyer.username}}</span>!
+    </div>
+</div>
