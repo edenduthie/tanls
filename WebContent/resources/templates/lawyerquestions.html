@@ -1,0 +1,108 @@
+<div class="content-width top-line">
+    <div class="lawyer-questions">
+        <div ng-include="'resources/templates/lawyermenu.html'"></div>
+        <div class="questions">
+            <div class="question" ng-repeat="question in questions">
+                <div class="heading">
+                    <div class="type-of-question" ng-show="question.quoteRequired && !question.proBono"><div class="green-dollar"></div><div class="label">Please Quote</div></div>
+                    <div class="type-of-question" ng-show="question.proBono"><div class="pro-bono-hand"></div><div class="label pro-bono">Pro-bono job</div></div>
+                    <strong>{{question.customer.name}}</strong><span ng-show="question.customer.companyName"> - {{question.customer.companyName}}</span> asked:
+                </div>
+                <div class="text-and-info">
+                    <div class="text" ng-bind-html-unsafe="question.text | noHTML | newlines"></div>
+                    <div class="info">
+                        <div class="row">
+                            <div class="calendar-icon-white icon"></div>
+                            <div class="label">{{question.time |date:'dd MMM yyyy'}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="question-icon-white icon"></div>
+                            <div class="label">{{question.answers}} Responses</div>
+                        </div>
+                        <div class="row">
+                            <a class="tick-icon-white icon"></a>
+                            <div class="label">{{question.useful}} Useful</div>
+                        </div>
+                    </div>
+                </div>
+                <div >
+                <div class="write-response" write-response ng-controller="AnswerCtrl">
+                    <div ng-switch="whatToShow">
+		                <table ng-switch-when="write-a-response" class="write-a-response">
+		                    <tr ng-show="!question.quoteRequired"><td class="label">Write a response</td><td><input type="text" ng-click="setWhatToShow('response-form')"></input></td></tr>
+		                    <tr ng-show="question.quoteRequired && !question.proBono"><td><a href="javascript:void(0)" ng-click="setWhatToShow('response-form')">Provide a quote for legal services</a></td></tr>
+		                     <tr ng-show="question.quoteRequired && question.proBono"><td><a href="javascript:void(0)" ng-click="setWhatToShow('response-form')">Send a proposal for pro-bono legal services</a></td></tr>
+		                </table>
+		                <form ng-switch-when="response-form" class="response-form" name="responseForm">
+		                    <div class="left">
+		                        <a class="error-box" ng-show="error" ng-click="error=false" title="close">{{errorMessage}}</a>
+		                        <div ng-show="!question.quoteRequired">
+			                        <label>Respond to the question above to gain 1 point, if the customer finds it useful you get another 2 points.</label>
+			                        <textarea ng-model="answer.text" ng-required="!question.quoteRequired" maxlength="2000"></textarea>
+			                        <label><div class="green-dollar"></div><h4>Optionally include a quote for legal services with your answer</h4></label>
+		                        </div>
+		                        <div ng-show="question.quoteRequired">
+		                            <label>
+		                                <div class="green-dollar"></div>
+		                                <h4 ng-show="!question.proBono">Please provide a quote for legal services:</h4>
+		                                <h4 ng-show="question.proBono">Please provide a proposal for pro-bono legal services:</h4>
+		                            </label>
+		                        </div>
+		                        <table class="fees" ng-show="!question.proBono">
+		                            <tr>
+		                                <td class="label">Legal Fees (AUD)</td>
+		                                <td class="input"><input class="right-margin" type="number" ng-required="question.quoteRequired && !question.proBono" ng-model="answer.quote.legalFees" tooltip="This figure includes the 15% agent fee and GST if you are registered."></input></td>
+		                                <td class="label">Disbursements (AUD)</td>
+		                                <td class="input"><input type="number" ng-model="answer.quote.disbursments" tooltip="Optionally include any disbursements. This figure includes a 3% credit card processing fee."></input></td>
+		                            </tr>
+		                        </table>
+		                        <label>Description of services:</label>
+		                        <textarea ng-model="answer.quote.text" ng-required="question.quoteRequired" maxlength="2000" tooltip="Fully describe the services to be rendered in plain English. You are providing a commitment to the customer to perform the described services at the quoted price once they have paid (or for free if this is a pro-bono service)."></textarea>
+		                        <div class="buttons">
+		                            <button class="grey" ng-click="answer()" ng-disabled="responseForm.$invalid || isUnchanged(answer)" tooltip="Submit your answer and/or quote to the customer. Answers can be modified at any time but quotes cannot be edited after submission.">Submit Response</button>
+		                            <a class="grey" ng-click="setWhatToShow('write-a-response')" href="javascript:void(0)">Cancel</a>
+		                        </div>
+		                    </div>
+		                </form>
+		                <div ng-switch-when="answered" class="answered">
+		                    <span ng-switch="question.answer.status">
+		                        <span ng-switch-when="NEW" class="right">Client has not yet rated your response. You earned 1 point.</span>
+		                        <span ng-switch-when="USEFUL" class="right"><span class="tick-icon-green"></span><span>Client found your response useful. You earned 3 points!</span></span>
+		                        <span ng-switch-when="NOT_USEFUL" class="right"><span class="cross-icon-grey"></span><span>Client did not find your response useful. You earned 1 point.</span></span>
+		                    </span>
+		                    Responded: {{question.answer.time | date:'dd MMM yyyy hh:mm a'}} <a href="javascript:void(0)" ng-click="setWhatToShow('edit-response')"><span ng-show="!question.quoteRequired">Edit</span><span ng-show="question.quoteRequired">View</span> Response</a>
+		                </div>
+		                <div ng-switch-when="edit-response" class="edit-response">
+		                    <span ng-switch="question.answer.status">
+		                        <span ng-switch-when="NEW" class="right">Client has not yet rated your response. You earned 1 point.</span>
+		                        <span ng-switch-when="USEFUL" class="right"><span class="tick-icon-green"></span><span>Client found your response useful. You earned 3 points!</span></span>
+		                        <span ng-switch-when="NOT_USEFUL" class="right"><span class="cross-icon-grey"></span><span>Client did not find your response useful. You earned 1 point.</span></span>
+		                    </span>
+		                    <span class="left-margin">Responded: {{question.answer.time | date:'dd MMM yyyy hh:mm a'}}</span>
+		                    <form class="edit-response-form" name="editResponseForm" ng-show="question.answer.text != null">
+			                    <div class="left">
+			                        <a class="error-box" ng-show="error" ng-click="error=false" title="close">{{errorMessage}}</a>
+			                        <textarea ng-model="question.answer.text" required="true" maxlength="2000"></textarea>
+			                        <div class="buttons">
+			                            <button class="grey" ng-click="edit()" ng-disabled="editResponseForm.$invalid || isUnchanged(question.answer)">Save Changes</button>
+			                            <a class="grey" ng-click="setWhatToShow('answered')" href="javascript:void(0)">Cancel</a>
+			                        </div>
+			                    </div>
+			                </form>
+			                <div ng-show="question.answer.quote != null && !question.proBono" class="response-fees">
+			                    Quoted; <span class="grey">Legal Fees:</span> ${{question.answer.quote.legalFees}}, <span class="grey">Disbursements:</span> ${{question.answer.quote.legalFees}}
+			                </div>
+			                <div ng-show="question.answer.quote != null" class="quote-text">
+			                    <div class="label">Description of legal services to be provided:</div>
+			                    <div class="text" ng-bind-html-unsafe="question.answer.quote.text | noHTML | newlines"></div>
+			                    <button ng-show="question.quoteRequired" class="grey" ng-click="setWhatToShow('answered')" href="javascript:void(0)">Close</button>
+			                </div>
+		                </div>
+	                </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="loading" ng-show="loading"></div>
+    </div>
+</div>
