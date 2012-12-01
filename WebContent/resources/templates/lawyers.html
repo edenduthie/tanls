@@ -1,0 +1,22 @@
+<div class="single-page-content grey-back lawyers">
+    <div class="diagonal"><img src="{{baseUrl}}/resources/images/diagonal.svg"></img></div>
+    <div class="content-width"><h1>Easy Law Lawyers</h1></div>
+    <a class="lawyer" ng-repeat="lawyer in lawyers" href="#!/lawyers/{{lawyer.username}}">
+        <div class="photo-container" resizable-image="lawyer.profilePhoto" resize-x="false" resize-y="false"></div>
+        <div class="text">
+            <div class="admitted-label">
+                <p>Admitted {{lawyer.timeAdmitted | date:'MMMM yyyy'}}</p>
+                <p class="points">{{lawyer.points}} points, {{lawyer.percentagePositive | number:0}}% positive</p>
+            </div>
+            <h2>{{lawyer.name}}</h2>
+            <h3>{{lawyer.firmName}}</h3>
+            <div ng-show="lawyer.areasOfPractise && lawyer.areasOfPractise.length > 0 ">
+	            <h4>Areas of Practice</h4>
+	            <ul>
+	                <li ng-repeat="area in lawyer.areasOfPractise">{{area.name}}</li>
+	            </ul>
+            </div>
+         </div>
+    </a>
+    <div class="loading" ng-show="loading"></div>
+</div>
