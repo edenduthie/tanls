@@ -1,0 +1,107 @@
+<div class="blue-full-banner">
+    <div ng-include src="baseUrl + '/resources/templates/askquestion.html'"></div>
+    <a class="next-section-down-link" href="javascript:void(0)" ng-click="nextItem('how-it-works')"></a>
+</div>
+<section id="how-it-works">
+    <h2>How it Works</h2>
+    <div class="sequence-of-three">
+        <div class="picture">
+            <div class="top text-box"><p>I have just started a new job but I am still running ...</p></div>
+            <div class="label"><p>Describe your legal problem in plain english.</p></div>
+        </div>
+        <div class="dots"></div>
+        <div class="picture">
+            <div class="top light-bulb"></div>
+            <div class="label"><p>Your question is sent out to our community of lawyers.</p></div>
+        </div>
+        <div class="dots"></div>
+        <div class="picture">
+            <div class="top list"></div>
+            <div class="label"><p>Review the responses to your question or compare quotes and hire a lawyer.</p></div>
+        </div>
+    </div>
+    <a class="next-section-down-link" href="javascript:void(0)" ng-click="nextItem('video')"></a>
+</section>
+<section id="video">
+    <div class='video-container'>
+        <iframe width="920" height="517.5" src="https://www.youtube.com/embed/mHkuadfnDpE?rel=0" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <a class="next-section-down-link" href="javascript:void(0)" ng-click="nextItem('our-featured-lawyer')"></a>
+</section>
+<section id="our-featured-lawyer" class="grey-back">
+    <div class="diagonal"><img ng-src="{{baseUrl}}/resources/images/diagonal.svg"></img></div>
+    <h2>Our Featured Lawyer</h2>
+    <div class="featured-lawyer">
+        <a class="lawyer-link" href="#!/lawyers/gidmeltzer"><img ng-src="{{baseUrl}}/resources/images/gid.png"></img></a>
+        <div class="text">
+            <p>Easy Law is changing the way I practice law. I choose when to answer questions and which jobs to quote in order to grow my online profile and my client base.<p>
+            <p class="white"><strong>Gid Meltzer</strong>, Easy Law
+         </div>
+    </div>
+    <section id="latest-news">
+        <h3>Latest articles from our lawyers</h3>
+        <article ng-repeat="profileItem in profileItems">
+            <h1><a href="#!/articles/{{profileItem.title}}">{{profileItem.title}}</a></h1>
+            <div class="text" ng-bind-html-unsafe="profileItem.text"></div>
+        </article>
+        <a class="blue" href="#!/articles">read more ></a>
+    </section>
+     <!-- 
+     <section id="latest-news-twitter">
+         <article>
+	         <h1>Latest from @EasyLawHQ</h1>
+	         <div class="twitter-widget">
+	             <iframe src='{{baseUrl}}/twitter' marginheight='0' marginwidth='0' frameborder='0' style='border:0;height:510px;width:500px;'></iframe>
+	         </div>
+         </article>
+     </section>
+      -->
+    <a class="next-section-down-link" href="javascript:void(0)" ng-click="nextItem('recent-legal-questions')"></a>
+</section>
+<section id="recent-legal-questions" easy-scroller="currentScrollItem">
+    <a class="arrow-right" ng-click="scrollRight()"></a>
+    <a class="arrow-left" ng-click="scrollLeft()"></a>
+    <div class="recent-legal-questions-wrapper">
+	    <h2>Recent Popular Legal Questions</h2>
+	    <div class="legal-question-container scrollable">
+	        <div class="legal-question">
+	            <p class="quote">"How do I protect my family home from business creditors?"</p>
+	            <!-- <img ng-src="{{baseUrl}}/resources/images/logos/jurisd.png" title="jurisd" alt="jurisd"></img>
+	            <div class="from">
+	                <div class="name">Eden Duthie 2</div>
+	                <div class="title">Director</div>
+	            </div>
+	            -->
+	        </div>
+	        <div class="legal-question right">
+	            <p class="quote">"I want to purchase an investment property with my sister. What agreements might we need and how can we safely share the investment? "</p>
+	            <!-- <img ng-src="{{baseUrl}}/resources/images/logos/jurisd.png" title="jurisd" alt="jurisd"></img>
+	            <div class="from">
+	                <div class="name">Eden Duthie 2</div>
+	                <div class="title">Director</div>
+	            </div>
+	            -->
+	        </div>
+	    </div>
+	    <div class="legal-question-container scrollable">
+	        <div class="legal-question">
+	            <p class="quote">"I have an online Jewellery store and want to protect my designs and my brand/logo. How can I do this?"</p>
+	            <!-- <img ng-src="{{baseUrl}}/resources/images/logos/jurisd.png" title="jurisd" alt="jurisd"></img>
+	            <div class="from">
+	                <div class="name">Eden Duthie 2</div>
+	                <div class="title">Director</div>
+	            </div>
+	            -->
+	        </div>
+	        <div class="legal-question right">
+	            <p class="quote">" I have received a letter of demand from my telecommunications company and believe that there is no basis for the debts claimed, how can I dispute this?"</p>
+	            <!-- <img ng-src="{{baseUrl}}/resources/images/logos/jurisd.png" title="jurisd" alt="jurisd"></img>
+	            <div class="from">
+	                <div class="name">Eden Duthie 2</div>
+	                <div class="title">Director</div>
+	            </div>
+	            -->
+	        </div>
+	    </div>
+    </div>
+</section>
