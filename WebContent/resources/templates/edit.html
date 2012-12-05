@@ -1,0 +1,54 @@
+<div class="top-line">
+<div class="profile-width">
+    <div ng-include src="'resources/templates/lawyermenu.html'" onload="editProfile=true"></div>
+</div>
+<div class="single-page-content grey-back edit-profile-form">
+    <div class="diagonal"><img ng-src="{{baseUrl}}/resources/images/diagonal.svg"></img></div>
+    <form name="editForm">
+        <h1>Edit Your Profile</h1>
+        <a class="error-box" ng-show="error" ng-click="error=false" title="close">{{errorMessage}}</a>
+        <a class="success-box" ng-show="success" ng-click="success=false" title="close">{{successMessage}}</a>
+        <h2>Essential Items</h2>
+        <div class="input-field"><label>Name</label><input type="text" required="true" ng-model="lawyer.name" ng-change="clear()" ng-maxlength="40" ng-pattern="/^[a-zA-Z0-9 _-]+$/"></div>
+        <div class="input-field"><label>Username</label><input type="text" required="true" ng-model="lawyer.username" ng-change="clear()" ng-maxlength="40" ng-pattern="/^[a-zA-Z0-9_-]*$/"></div>
+        <div class="input-field"><label>Practitioner Number</label><input type="text" required="true" ng-model="lawyer.practitionerNumber" ng-change="clear()" ng-maxlength="50"></div>
+        <h2>Optional Items</h2>
+        <div class="input-field"><label>When were you admitted to practice?</label><input type="text" ui-date="dateOptions" ng-model="lawyer.timeAdmitted" ng-change="clear()" tooltip="This is set to today's date so please select your date of admission, an approximate date is fine. Select a day from the calendar or enter in dd/mm/yyyy format."></input></div>
+        <div class="input-field"><label>State</label><div class="styled-select"><select ng-model="lawyer.state" ng-options="state for state in states"></select></div></div>
+        <div class="input-field"><label>Your Webpage URL: <a href="{{lawyer.url}}" title="your webpage" target="_blank">{{lawyer.url}}</a></label><input type="url" ng-model="lawyer.url" ng-change="clear()" ng-maxlength="200" tooltip="Optionally enter the url of your personal webpage starting with http://"></input></div>
+        <div class="input-field"><label>Firm Name</label><input type="text" ng-model="lawyer.firmName" ng-change="clear()" ng-maxlength="100" tooltip="Optional"></input></div>
+        <div class="input-field"><label>Your Firm's URL: <a href="{{lawyer.firmUrl}}" title="your firm's webpage" target="_blank">{{lawyer.firmUrl}}</a></label><input type="url" ng-model="lawyer.firmUrl" ng-change="clear()" ng-maxlength="200" tooltip="Optionally enter the url of your firm starting with http://"></input></div>
+        <div class="input-field"><label>A Summary of Your Career</label><textarea ng-model="lawyer.summary" ng-maxlength="4000" tooltip="Please enter a brief summary of your career. Your full career history should be added the Career section of your profile."></textarea></div>
+        <h2>Areas of Practice</h2>
+        <table class="area-of-practise-input">
+            <tr>
+               <td><label>Select an area:</label></td>
+               <td></td>
+               <td class="longer"><label>or add a new area</label></td>
+               <td></td>
+            </tr>
+            <tr>
+               <td>
+                   <div class="styled-select left">
+	                   <select ng-options="a as a.name for a in areasOrPractise" ng-model="areaOfPractise"></select>
+	               </div>
+               </td>
+               <td><a class="add-area-of-pracise" ng-click="addArea(areaOfPractise)">Add</a></td>
+               <td class="longer"><input type="text" ng-model="newAreaOfPractise"></input></td>
+               <td><a class="add-area-of-pracise" ng-click="addNewArea(newAreaOfPractise)">Add</a></td>
+            </tr>
+        </table>
+        <table class="areas-of-practise">
+            <tr ng-repeat="area in lawyer.areasOfPractise">
+                <td class="area-name">{{area.name}}</td>
+                <td class="close" ng-click="closeArea($index)"></td>
+            </tr>
+        </table>
+        <h2>Social Media</h2>
+        <div class="input-field"><label>Your Facebook Username: <a href="http://www.facebook.com/{{lawyer.facebook}}" title="your facebook profile" target="_blank">http://www.facebook.com/{{lawyer.facebook}}</a></label><input type="text" ng-model="lawyer.facebook" ng-change="clear()" ng-maxlength="200" tooltip="The username which comes after http://www.facebook.com/ to direct viewers to your public facebook profile. If you log into facebook in the top left corner you should see a small version of your profile picture. Click on your name to the right of the picture and it will take you to http://www.facebook.com/username, copy this username into this field."></input></div>
+        <div class="input-field"><label>Your Twitter Username: <a href="http://www.twitter.com/{{lawyer.twitter}}" title="your twitter profile" target="_blank">http://www.twitter.com/{{lawyer.twitter}}</a></label><input type="text" ng-model="lawyer.twitter" ng-change="clear()" ng-maxlength="200" tooltip="Your twitter username. This is what comes after http://www.twitter.com/ to direct viewers to your twitter feed. If you log into twitter in the top left corner you should see a small version of your profile picture. Click on your name to the right of the picture and it will take you to http://www.twitter.com/username, copy this username into this field."></input></div>
+        <div class="input-field"><label>Your Linkedin URL: <a href="{{lawyer.linkedin}}" title="your linkedin profile" target="_blank">{{lawyer.linkedin}}</a></label><input type="url" ng-model="lawyer.linkedin" ng-change="clear()" ng-maxlength="200" tooltip="The full url of your public linkedin profile. To find this log into linkedin and click on profile in the top menu. Just under your picture there should be a link such as http://au.linkedin.com/in/gatorlogic. Copy this link including the http:// into this field."></input></div>
+        <button class="blue" ng-click="edit()" href="javascript:void(0)" ng-disabled="editForm.$invalid || isUnchanged(lawyer)">Save Changes</button>
+    </form>
+</div>
+</div>
