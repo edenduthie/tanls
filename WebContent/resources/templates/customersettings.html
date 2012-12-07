@@ -1,0 +1,21 @@
+<div class="top-line customer-settings">
+<div class="content-width">
+    <div ng-include src="'resources/templates/customermenu.html'"></div>
+</div>
+<div class="single-page-content grey-back">
+    <div class="diagonal"><img ng-src="{{baseUrl}}/resources/images/diagonal.svg"></img></div>
+    <div class="account-settings">
+	    <h1>Your Account Settings</h1>
+	    <div ng-include src="'resources/templates/emailpasswordform.html'"></div>
+	    <form name="customerSettingsForm">
+	        <h2>Configuration</h2>
+	        <a class="error-box" ng-show="globalError" ng-click="globalError=false" title="close">{{globalErrorMessage}}</a>
+            <a class="success-box" ng-show="globalSuccess" ng-click="globalSuccess=false" title="close">{{globalSuccessMessage}}</a>
+            <div class="input-field"><label>Your full name</label><input type="text" required="true" ng-model="customer.name" maxlength="200"></input></div>
+            <div class="input-field"><label>Company Name (optional)</label><input type="text" ng-model="customer.companyName" maxlength="200"></input></div>
+	        <div class="input-field"><input type="checkbox" ng-model="customer.emailNotifications"><span class="checkbox-label" checked="true">Receive email notifications</span></div>
+	        <button class="blue" ng-click="edit()" href="javascript:void(0)" ng-disabled="customerSettingsForm.$invalid || isUnchanged(lawyer)">Save Changes</button>
+	    </form>
+    </div>
+</div>
+</div>
