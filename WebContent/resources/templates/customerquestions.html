@@ -1,0 +1,65 @@
+<div class="content-width top-line">
+    <div ng-include="'resources/templates/customermenu.html'"></div>
+    <div class="customer-questions">
+        <div class="answers" ng-show="!hideAnswers">
+            <!-- 
+            <nav select-nav>
+                <ul>
+                    <li class="NEW selected"><a href="javascript:void(0)" title="new answers" ng-click="changeStatus('NEW')">New</a></li>
+                    <li class="USEFUL"><a href="javascript:void(0)" title="useful answers" ng-click="changeStatus('USEFUL')">Useful</a></li>
+                    <li class="NOT_USEFUL last"><a href="javascript:void(0)" title="not useful answers" ng-click="changeStatus('NOT_USEFUL')">Not Useful</a></li>
+                </ul>
+            </nav>
+             -->
+            <div ng-repeat="answer in answers" class="answer">
+                <div class="picture">
+                    <img ng-show="answer.lawyer.profilePhoto.id" class="post-photo" ng-src="{{baseUrl}}/photo/{{answer.lawyer.profilePhoto.id}}"></img>
+			        <div ng-show="!answer.lawyer.profilePhoto.id" class="small-photo"></div>
+                </div>
+                <div class="left-triangle"></div>
+                <div class="box">
+                    <div class="text" ng-show="answer.text != null" ng-bind-html-unsafe="answer.text | noHTML | newlines"></div>
+                    <div class="text" ng-show="answer.quote != null && answer.quote.text != null" ng-bind-html-unsafe="answer.quote.text | noHTML | newlines"></div>
+                    <div class="details">
+                        <div class="actions">
+                            <a class="tick-icon-grey" ng-click="status(answer,'USEFUL')" ng-class="{selected: answer.status=='USEFUL'}">Useful</a>
+                            <a class="cross-icon-grey" ng-click="status(answer,'NOT_USEFUL')" ng-class="{selected: answer.status=='NOT_USEFUL'}">Not Useful</a>
+                        </div>
+                        <div ng-show="answer.quote == null">
+                            <div class="calendar-icon-grey icon"></div>
+                            <div class="label">{{answer.time |date:'dd MMM yyyy hh:mm a'}}</div>
+                        </div>
+                        <div ng-show="answer.quote != null && !answer.quote.file">
+                            <button class="pink" ng-click="book(answer.quote)">Book</button>
+                            <div ng-show="answer.quote.legalFees != null">
+                                <div class='marketplace-icon'></div>
+                                <div class="quote">Quote: ${{(answer.quote.legalFees+answer.quote.disbursments) | number:2}} AUD</div>
+                            </div>
+                            <div ng-show="answer.quote.legalFees == null">
+                                <div class='hand-icon-small'></div>
+                                <div class="quote">Pro-bono proposal</div>
+                            </div>
+                        </div>
+                        <div class="quote" ng-show="answer.quote.file">Booked! <a href='#!/customer/files/{{answer.quote.file.id}}'>view booking</a></div>
+                    </div>
+                </div>
+            </div>
+            <a class="load-more-answers" ng-show="loadMoreAnswers" href="javascript:void(0)" ng-click="getAnswers()">Load More Answers</a>
+            <div class="load-more-answers" ng-show="!loadMoreAnswers" href="javascript:void(0)">{{messageText}}</div>
+        </div>
+        <div class="questions">
+            <div class="question" ng-repeat="question in questions" ng-click="loadAnswers(question)" click-to-select-question>
+                <div class="text" ng-bind-html-unsafe="question.text | noHTML | newlines"></div>
+                <div class="details">
+                    <div class="calendar-icon-white icon"></div>
+                    <div class="label">{{question.time |date:'dd MMM yyyy'}}</div>
+                    <div class="question-icon-white icon"></div>
+                    <div class="label">{{question.answers}} Responses</div>
+                    <div class="tick-icon-white icon"></div>
+                    <div class="label">{{question.useful}} Useful</div>
+                </div>
+            </div>
+            <a ng-show="loadMore" ng-click="getQuestions()" href="javascript:void(0)">Load More Questions</a>
+        </div>
+    </div>
+</div>
