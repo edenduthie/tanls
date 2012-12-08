@@ -1,0 +1,81 @@
+<div class="content-width top-line">
+    <div class="sub-heading" ng-show="customer" ng-include="'resources/templates/customermenu.html'"></div>
+    <div class="sub-heading" ng-show="!customer" ng-include="'resources/templates/lawyermenu.html'"></div>
+    <div class="files">
+        <ul class="list" ng-show="!hideList">
+            <li ng-repeat="file in files" ng-click="showFile(file)" selectable ng-class="{selected:fileHolder.currentFile.id==file.id}">
+                <img ng-show="file.lawyer.profilePhoto.id" class="post-photo" ng-src="{{baseUrl}}/photo/{{file.lawyer.profilePhoto.id}}"></img>
+			    <div ng-show="!file.lawyer.profilePhoto.id" class="small-photo"></div>
+                <div class="label">{{file.time|date:'dd MMM yyyy hh:mm a'}}</div>
+            </li>
+            <a ng-show="loadMore" href="javascript:void(0)" ng-click="getFiles()">Show more</a>
+        </ul>
+        <div class="file-content fixed-column" ng-show="(fileHolder.currentFile && !mobile) || (mobile && hideList)" ng-controller="FileCtrl" ng-init="init(fileHolder)">
+            <div class="heading">
+	            <div class="right">
+	                <p>Made By: {{fileHolder.currentFile.customer.name}} (<a href="mailto:{{fileHolder.currentFile.customer.user.email}}">{{fileHolder.currentFile.customer.user.email}}</a>)</p>
+	                <p>{{fileHolder.currentFile.time|date:'dd MMM yyyy hh:mm a'}}</p>
+	            </div>
+	            <h1>Booking #{{fileHolder.currentFile.id}}</h1>
+            </div>
+            <p ng-show="customer">Congratulations! You have booked {{fileHolder.currentFile.lawyer.name}} to perform the legal services described below. You will be contacted shortly via email and
+can also contact your lawyer at any time via <a href="mailto:{{fileHolder.currentFile.lawyer.user.email}}">{{fileHolder.currentFile.lawyer.user.email}}</a>. When the legal work is complete you will be given the opportunity to rate 
+your experience and provide feedback.</p>
+            <p ng-show="!customer">{{fileHolder.currentFile.customer.name}} has booked you! Please contact him/her via <a href="mailto:{{fileHolder.currentFile.customer.user.email}}">
+
+{{fileHolder.currentFile.customer.user.email}}</a> to commence the legal work. Once you have finished click on the button below to inform us that the work is fully complete. 
+            <span ng-show="!fileHolder.currentFile.quote.question.proBono">The fees and minus the 15% Easy Law agent fee and disbursements minus the 3% credit card processing fee will be 
+transferred into your account after 48 hours. Make sure your account details are up to date in <a href="#!/lawyer/settings">settings</a>.</span>
+            </p>
+            <h2>Current Status: {{fileHolder.currentFile.status}}</h2>
+            <a class="error-box" ng-show="error" ng-click="error=false" title="close">{{errorMessage}}</a>
+            <button class="blue change-status" ng-show="!customer && (fileHolder.currentFile.status == 'IN PROGRESS')" ng-click="complete()" href="javascript:void(0)">Legal Work is Complete</button>
+            <div class="feedback-form" ng-show="customer && (fileHolder.currentFile.status == 'COMPLETE PENDING FEEDBACK')">
+               <p>Please rate your experience with {{fileHolder.currentFile.lawyer.name}}. Ratings of 5-10 are considered positive and will award your lawyer 5-10 Easy Law points.</p>
+               <form name="feedbackForm">
+                   <div class="rating"><div class="rating-value">5</div><div class="slider" slider ng-model="fileHolder.currentFile.feedback.rating"></div></div>
+                   <div class="input-field"><label>Feedback</label><textarea required="true" ng-model="fileHolder.currentFile.feedback.text" maxlength="700"></textarea></div>
+                   <button class="blue" ng-click="feedback()" href="javascript:void(0)" ng-disabled="feedbackForm.$invalid || isUnchanged(feedbackForm)">Submit Feedback</button>
+               </form>
+            </div>
+            <div class="feedback-box" ng-show="fileHolder.currentFile.status == 'FEEDBACK RECEIVED'">
+                <h2>Rating: {{fileHolder.currentFile.feedback.rating}}</h2>
+                <div class="text" ng-bind-html-unsafe="fileHolder.currentFile.feedback.text | noHTML | newlines"></div>
+            </div>
+	        <div class="question">
+		        <h2>Question / job description</h2>
+		        <div class="text" ng-bind-html-unsafe="fileHolder.currentFile.quote.question.text | noHTML | newlines"></div>
+		    </div>
+		    
+		    <div class="legal-service">
+		        <h2>Legal service description</h2>
+		        <div class="text" ng-bind-html-unsafe="fileHolder.currentFile.quote.text | noHTML | newlines"></div>
+		    </div>
+		    <a class="lawyer" href="#!/lawyers/{{fileHolder.currentFile.lawyer.username}}">
+	            <div class="photo-container" resizable-image="fileHolder.currentFile.lawyer.profilePhoto" resize-x="false" resize-y="false"></div>
+		        <div class="text">
+		            <div class="admitted-label">
+		                Admitted {{fileHolder.currentFile.lawyer.timeAdmitted | date:'MMMM yyyy'}}
+		            </div>
+		            <h2>{{fileHolder.currentFile.lawyer.name}}</h2>
+		            <h3>{{fileHolder.currentFile.lawyer.firmName}}</h3>
+		            <p>{{fileHolder.currentFile.lawyer.points}} points, {{fileHolder.currentFile.lawyer.percentagePositive | number:0}}% positive</p>
+		            <div ng-show="fileHolder.currentFile.lawyer.areasOfPractise && fileHolder.currentFile.lawyer.areasOfPractise.length > 0 ">
+			            <h4>Areas of Practice</h4>
+			            <ul>
+			                <li ng-repeat="area in fileHolder.currentFile.lawyer.areasOfPractise">{{area.name}}</li>
+			            </ul>
+		            </div>
+		        </div>
+	        </a>
+	        
+	        <div class="quote" ng-show="!fileHolder.currentFile.quote.question.proBono">
+		        <table>
+	                <tr><td>Legal Fees:</td><td>{{fileHolder.currentFile.quote.legalFees}}</td></tr>
+	                <tr><td>Disbursements:</td><td>{{fileHolder.currentFile.quote.disbursments}}</td></tr>
+	                <tr><td>Total:</td><td class="blue">{{(fileHolder.currentFile.quote.legalFees+fileHolder.currentFile.quote.disbursments) | number:2}}</td></tr>
+		        </table>
+		    </div>
+        </div>
+    </div>
+</div>
