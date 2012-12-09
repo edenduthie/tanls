@@ -1,0 +1,20 @@
+<div class="single-page-content grey-back">
+    <div class="diagonal"><img ng-src="{{baseUrl}}/resources/images/diagonal.svg"></img></div>
+    <form name="askQuestionForm" class="ask-question-form">
+        <h1>Ask our Lawyers a Question or Post a Job</h1>
+        <h2>Opening offer: all questions are free!</h2>
+        <a class="error-box" ng-show="error" ng-click="error=false" title="close">{{errorMessage}}</a>
+        <div class="input-field"><label>Your legal question</label><textarea required="true" ng-model="question.text" maxlength="700" tooltip="Please describe your legal question or job description in 700 characters or less."></textarea></div>
+        <div class="input-field"><label>Your full name</label><input type="text" required="true" ng-model="question.customer.name" maxlength="200" tooltip="This is required for a conflict of interest check."></textarea></div>
+        <div class="input-field"><label>Your company name (optional)</label><input type="text" ng-model="question.customer.companyName" maxlength="200" tooltip="Enter your company or organisation name if you are seeking legal advice on behalf of a company or organisation."></textarea></div>
+        <div class="input-field">
+            <label>Area of law (optional)</label>
+	        <div class="styled-select left">
+		        <select ng-options="a as a.name for a in areasOrPractise" ng-model="question.areaOfPractise"></select>
+		    </div>
+	    </div>
+	    <div class="input-field checkbox" tooltip="Ensure you get a quote with the response"><input type="checkbox" ng-model="question.quoteRequired"><span class="checkbox-label" checked="true">Lawyers, please provide a quote for legal services.</span></div>
+        <div class="input-field checkbox" tooltip="Receive propossals from pro-bono lawyers"><input type="checkbox" ng-model="question.proBono"><span class="checkbox-label" checked="true">Tick this box if you are a not-for-profit or community organisation seeking pro-bono legal work.</span></div>
+        <button class="blue" ng-click="ask()" href="javascript:void(0)" ng-disabled="askQuestionForm.$invalid || isUnchanged(question)" tooltip="Send your question to all our lawyers!">Confirm</button>
+    </form>
+</div>
