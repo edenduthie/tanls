@@ -1,0 +1,90 @@
+<div class="single-page-content grey-back">
+    <div class="diagonal"><img ng-src="{{baseUrl}}/resources/images/diagonal.svg"></img></div>
+    <form name="bookForm" class="book-form">
+        <h1>Book a Lawyer</h1>
+        <a class="lawyer" href="#!/lawyers/{{file.quote.lawyer.username}}">
+            <div class="photo-container" resizable-image="file.quote.lawyer.profilePhoto" resize-x="false" resize-y="false"></div>
+	        <div class="text">
+	            <div class="admitted-label">Admitted {{file.quote.lawyer.timeAdmitted | date:'MMMM yyyy'}}</div>
+	            <h2>{{file.quote.lawyer.name}}</h2>
+	            <h3>{{file.quote.lawyer.firmName}}</h3>
+	            <!-- <p>{{lawyer.points}} points, {{lawyer.percentagePositive | number:0}}% positive</p> -->
+	            <div ng-show="file.quote.lawyer.areasOfPractise && file.quote.lawyer.areasOfPractise.length > 0 ">
+		            <h4>Areas of Practice</h4>
+		            <ul>
+		                <li ng-repeat="area in file.quote.lawyer.areasOfPractise">{{area.name}}</li>
+		            </ul>
+	            </div>
+	        </div>
+	    </a>
+	    
+	    <div class="question">
+	        <h2>Your question / job description</h2>
+	        <div class="text" ng-bind-html-unsafe="file.quote.question.text | noHTML | newlines"></div>
+	    </div>
+	    
+	    <div class="legal-service">
+	        <h2>Legal service description</h2>
+	        <div class="text" ng-bind-html-unsafe="file.quote.text | noHTML | newlines"></div>
+	    </div>
+	    
+	    <div class="quote" ng-show="!file.quote.question.proBono">
+	        <table>
+	            <tr><td>Legal Fees:</td><td>{{file.quote.legalFees}}</td></tr>
+	            <tr><td>Disbursements:</td><td>{{file.quote.disbursments}}</td></tr>
+	            <tr><td>Total:</td><td class="blue">{{file.quote.legalFees+file.quote.disbursments | number:2}}</td></tr>
+	        </table>
+	    </div>
+	    
+	    <div ng-show="!file.quote.question.proBono">
+	    <div class="card-select">
+		    <div ng-show="file.quote.question.customer.maskedNumber && !file.payment.useExistingCustomer">
+		        Fill in the payment details below or <a href="javascript:void(0)" ng-click="file.payment.useExistingCustomer = true">Use Existing Credit Card</a>
+		     </div>
+		    <div ng-show="file.quote.question.customer.maskedNumber && file.payment.useExistingCustomer" >
+		        Currently using {{file.quote.question.customer.creditCardType}}: {{file.quote.question.customer.maskedNumber}}, <a href="javascript:void(0)" ng-click="file.payment.useExistingCustomer = false">Use a Different Card</a>
+		    </div>
+	    </div>
+	    
+	    <div ng-show="!file.payment.useExistingCustomer">
+		    <h3>Billing Address</h3>
+		    <div class="input-field"><label>Cardholder Name</label><input type="text" ng-required="!file.payment.useExistingCustomer" ng-model="file.payment.customer.billingAddress.name" maxlength="300"></input></div>
+	        <div class="input-field"><label>Street Address</label><input type="text" ng-required="!file.payment.useExistingCustomer" ng-model="file.payment.customer.billingAddress.streetAddress" maxlength="300"></input></div>
+	        <table class="three-column-input no-margin">
+	            <tr>
+	                <td class="two-col"><label>Suburb</label></td>
+	                <td class="one-col"><label>State</label></td>
+	                <td class="one-col"><label>Postcode</label></td>
+	            </tr>
+	            <tr>
+	                <td class="two-col"><input type="text" ng-required="!file.payment.useExistingCustomer" ng-model="file.payment.customer.billingAddress.suburb" maxlength="100" autocomplete></input></td>
+	                <td class="one-col">
+	                    <div class="styled-select left">
+			                <select class="select-next" ng-options="state for state in states" ng-model="file.payment.customer.billingAddress.state" ng-required="true"></select>
+			            </div>
+	                </td>
+	                <td class="one-col"><input type="text" ng-required="!file.payment.useExistingCustomer" ng-model="file.payment.customer.billingAddress.postcode" maxlength="4" ng-maxlength="4" ng-minlength="4" ></input></td>
+	            </tr>
+	        </table>
+	        
+	        <h3>Payment Details</h3>
+	        <div class="input-field"><label>Credit Card Number</label><input type="number" ng-required="!file.payment.useExistingCustomer" ng-model="file.payment.creditCardNumber" maxlength="16" ng-maxlength="16" ng-minlength="12" tooltip="We accept Visa and Mastercard"></input></div>
+	        
+	        <table class="three-column-input no-margin">
+	            <tr>
+	                <td class="two-col"><label>Expiry Date (mm/yyyy)</label></td>
+	                <td class="one-col"><label>CCV</label></td>
+	                <td class="one-col"><label>We Accept:</label></td>
+	            </tr>
+	            <tr>
+	                <td class="two-col"><input type="text" ng-required="!file.payment.useExistingCustomer" ng-model="file.payment.expiry" maxlength="7" ng-maxlength="7" ng-minlength="7" tooltip="Must be in the form mm/yyyy including the forward slash"></input></td>
+	                <td class="one-col"><input type="text" ng-required="!file.payment.useExistingCustomer" ng-model="file.payment.ccv" ng-maxlength="4" ng-minlength="3" maxlength="4" tooltip="Card Verification Value, a 3 digit number located on the back of your card just to the right of the signature panel."></input></td>
+	                <td class="one-col"><div class="visa-mastercard"></div></td>
+	            </tr>
+	        </table>
+        </div>
+        </div>
+        <a class="error-box" ng-show="error" ng-click="error=false" title="close">{{errorMessage}}</a>
+        <button class="blue" ng-click="book()" href="javascript:void(0)" ng-disabled="bookForm.$invalid || isUnchanged(file) || booking">Confirm</button>
+    </form>
+</div>
