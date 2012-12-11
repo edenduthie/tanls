@@ -1,0 +1,171 @@
+<div class="articles top-line content-width">
+    <h1 class="articles-title"><a href="#!/articles">Articles</a></h1>
+    <section class="articles-right">
+        <h3>Archive</h3>
+        <ul>
+            <li ng-repeat="profileItem in archive"><a href="#!/articles/{{profileItem.title}}">{{profileItem.title}}</a></li>
+        </ul>
+        <a class="center-link" ng-click="loadMore()">load more</a>
+    </section>
+    <section class="articles-left">
+        <article ng-repeat="profileItem in profileItems">
+	        <a class="title" href="#!/articles/{{profileItem.title}}">{{profileItem.title}}</a>
+	        <h2 ng-show="profileItem.subtitle && profileItem.subtitle.length > 0">{{profileItem.subtitle}}</h2>
+	        <div class="article-posted-by">
+	            <img ng-show="profileItem.lawyer.profilePhoto.id" class="post-photo" ng-src="{{baseUrl}}/photo/{{profileItem.lawyer.profilePhoto.id}}"></img>
+			    <div ng-show="!profileItem.lawyer.profilePhoto.id" class="small-photo"></div>
+	            <div class="text">
+	                <strong><a href="#!/lawyers/{{profileItem.lawyer.username}}">{{profileItem.lawyer.name}}</a></strong> - {{profileItem.timelineTime | date:'dd MMM yyyy'}}
+	            </div>
+	        </div>
+	        <div class="article-content" ng-class="singleCSSClass" ng-bind-html-unsafe="profileItem.text"></div>
+	        <div class="admin" ng-show="user.admin">
+	            {{profileItem.status}} <a ng-click="setStatus(profileItem,'APPROVED')" href="javascript:void(0)">approve</a> or <a ng-click="setStatus(profileItem,'REJECTED')" href="javascript:void(0)">reject</a>
+	        </div>
+	        <a ng-show="!singleArticle" href="#!/articles/{{profileItem.title}}" class="right">Read full article</a>
+        </article>
+        
+<!--  
+                <article>
+        <a class="title" href="#!/articles/The cat jumped out of the bag">Top 4 things to think of when hiring a lawyer</a>
+        <h2>A consumer guide</h2>
+        <div class="article-posted-by">
+            <div class="image"></div>
+            <div class="text">
+                <strong>Alon Cassuto</strong> - 24 May 2013
+            </div>
+        </div>
+        
+<p dir="ltr">1) Know your problem</p>
+<p dir="ltr">Lawyers spend a significant amount of time extrapolating useful information from clients. Given that many lawyers charge by the hour, you can save yourself time aTop 4 things to think of when hiring a lawyer</p>
+<p dir="ltr">1) Know your problem</p>
+<p dir="ltr">Lawyers spend a significant amount of time extrapolating useful information from clients. Given that many lawyers charge by the hour, you can save yourself time and money by minimising the amount of information you provide to your lawyer by phone, email and in meetings. </p>
+<p dir="ltr">Here are a few tips: </p>
+<ul>
+  <li dir="ltr">
+    <p dir="ltr">Make sure your questions are clearly defined in your head. It may help to write them down on a piece of paper. Use bullet points and numbers or headings if you prefer.</p>
+  </li>
+  <li dir="ltr">
+    <p dir="ltr">Lawyers are concerned with facts and issues. Avoid including emotions and opinions (while some lawyers may sit and listen to your problems as your wallet lightens, your money is probably better spent with a psychologist!). </p>
+  </li>
+  <li dir="ltr">
+    <p dir="ltr">Ask yourself questions such as: Who? What? Where? When? Your aim should be to include all the relevant facts and details and minimise the number of follow-up questions the lawyer has to ask. </p>
+  </li>
+  <li dir="ltr">
+    <p dir="ltr">Right from the outset, provide your lawyer with everything that is relevant to your issue including: documents, photos, diagrams, receipts etc.</p>
+  </li>
+</ul>
+<p dir="ltr">2) Know your costs</p>
+<p dir="ltr">A good lawyer who has been practicing in their field for long enough, will be able to give you an honest estimate of their expected fees. If fees are expected to go over $750, lawyers are obligated to provide you with a letter detailing the scope of the work and expected fees (called a &lsquo;costs disclosure letter&rsquo;). These letters should generally indicate the expected fees however lawyers are known to find creative ways around them. Lawyers are increasingly moving towards fixed upfront costs instead of hourly rates. It is therefore best to agree on an upfront cost with your lawyer. If your lawyer is not prepared to work on an upfront cost basis, you may wish to find one who does. </p>
+<p dir="ltr">3) Drill your lawyer - ask the hard questions</p>
+<p dir="ltr">Here&rsquo;s a little secret... not all lawyers are created equal. You need to trust and like your lawyer. It is important you do whatever you need to make sure you&rsquo;ve got to the right lawyer for the job. Depending on the complexity of your job, you may need to speak to several lawyers before you find the one that is right for you. You should aim to leave a discussion or meeting with a lawyer confident that you can rely on the lawyer&rsquo;s advice. </p>
+<p dir="ltr">Here are a few questions to ask your lawyer:</p>
+<ul>
+  <li dir="ltr">
+    <p dir="ltr">What is a recent example of a client you have helped with a similar issue as mine? What was the outcome?</p>
+  </li>
+  <li dir="ltr">
+    <p dir="ltr">Can you provide a brief overview of the process you will take (steps and costs)?</p>
+  </li>
+  <li dir="ltr">
+    <p dir="ltr">How much time will it take to solve the issue?</p>
+  </li>
+  <li dir="ltr">
+    <p dir="ltr">What will be my involvement as the client?</p>
+  </li>
+  <li dir="ltr">
+    <p dir="ltr">How regularly will you update me on progress?</p>
+  </li>
+  <li dir="ltr">
+    <p dir="ltr">Can you begin work immediately?</p>
+  </li>
+  <li dir="ltr">
+    <p dir="ltr">Is anything I can do to minimise the time you must spend and reduce my costs?</p>
+  </li>
+  <li dir="ltr">
+    <p dir="ltr">Are there any questions I should&rsquo;ve asked but didn&rsquo;t?</p>
+  </li>
+</ul>
+<br>
+<p dir="ltr">4) Google your lawyer</p>
+<p dir="ltr">A respectable lawyer should leave a positive trail that is easily revealed through a simple Google search. You should pay attention to: </p>
+<ul>
+  <li dir="ltr">
+    <p dir="ltr">LinkedIn profile- is your lawyer well connected with colleagues and the business community? Do they have a well populated LinkedIn profile with a detailed overview of their career? Do they have recommendations from clients on LinkedIn?</p>
+  </li>
+  <li dir="ltr">
+    <p dir="ltr">Articles and newsletters- has your lawyer had written works published in journals, magazines or online? If your lawyer claims to be an expert in a particular area, they should be able to demonstrate expertise through written works.</p>
+  </li>
+  <li dir="ltr">
+    <p dir="ltr">Does your lawyer&rsquo;s firm have an active website with recent news? </p>
+  </li>
+</ul>
+<p dir="ltr">In short, take your lawyer-dating and due diligence seriously. Solid preparation and basic background checks could save you many headaches and substantial expenses in the long run.</p>
+<p dir="ltr">nd money by minimising the amount of information you provide to your lawyer by phone, email and in meetings. </p>
+<p dir="ltr">Here are a few tips: </p>
+<ul>
+  <li dir="ltr">
+    <p dir="ltr">Make sure your questions are clearly defined in your head. It may help to write them down on a piece of paper. Use bullet points and numbers or headings if you prefer.</p>
+  </li>
+  <li dir="ltr">
+    <p dir="ltr">Lawyers are concerned with facts and issues. Avoid including emotions and opinions (while some lawyers may sit and listen to your problems as your wallet lightens, your money is probably better spent with a psychologist!). </p>
+  </li>
+  <li dir="ltr">
+    <p dir="ltr">Ask yourself questions such as: Who? What? Where? When? Your aim should be to include all the relevant facts and details and minimise the number of follow-up questions the lawyer has to ask. </p>
+  </li>
+  <li dir="ltr">
+    <p dir="ltr">Right from the outset, provide your lawyer with everything that is relevant to your issue including: documents, photos, diagrams, receipts etc.</p>
+  </li>
+</ul>
+<p dir="ltr">2) Know your costs</p>
+<p dir="ltr">A good lawyer who has been practicing in their field for long enough, will be able to give you an honest estimate of their expected fees. If fees are expected to go over $750, lawyers are obligated to provide you with a letter detailing the scope of the work and expected fees (called a &lsquo;costs disclosure letter&rsquo;). These letters should generally indicate the expected fees however lawyers are known to find creative ways around them. Lawyers are increasingly moving towards fixed upfront costs instead of hourly rates. It is therefore best to agree on an upfront cost with your lawyer. If your lawyer is not prepared to work on an upfront cost basis, you may wish to find one who does. </p>
+<p dir="ltr">3) Drill your lawyer - ask the hard questions</p>
+<p dir="ltr">Here&rsquo;s a little secret... not all lawyers are created equal. You need to trust and like your lawyer. It is important you do whatever you need to make sure you&rsquo;ve got to the right lawyer for the job. Depending on the complexity of your job, you may need to speak to several lawyers before you find the one that is right for you. You should aim to leave a discussion or meeting with a lawyer confident that you can rely on the lawyer&rsquo;s advice. </p>
+<p dir="ltr">Here are a few questions to ask your lawyer:</p>
+<ul>
+  <li dir="ltr">
+    <p dir="ltr">What is a recent example of a client you have helped with a similar issue as mine? What was the outcome?</p>
+  </li>
+  <li dir="ltr">
+    <p dir="ltr">Can you provide a brief overview of the process you will take (steps and costs)?</p>
+  </li>
+  <li dir="ltr">
+    <p dir="ltr">How much time will it take to solve the issue?</p>
+  </li>
+  <li dir="ltr">
+    <p dir="ltr">What will be my involvement as the client?</p>
+  </li>
+  <li dir="ltr">
+    <p dir="ltr">How regularly will you update me on progress?</p>
+  </li>
+  <li dir="ltr">
+    <p dir="ltr">Can you begin work immediately?</p>
+  </li>
+  <li dir="ltr">
+    <p dir="ltr">Is anything I can do to minimise the time you must spend and reduce my costs?</p>
+  </li>
+  <li dir="ltr">
+    <p dir="ltr">Are there any questions I should&rsquo;ve asked but didn&rsquo;t?</p>
+  </li>
+</ul>
+<p dir="ltr">4) Google your lawyer</p>
+<p dir="ltr">A respectable lawyer should leave a positive trail that is easily revealed through a simple Google search. You should pay attention to: </p>
+<ul>
+  <li dir="ltr">
+    <p dir="ltr">LinkedIn profile- is your lawyer well connected with colleagues and the business community? Do they have a well populated LinkedIn profile with a detailed overview of their career? Do they have recommendations from clients on LinkedIn?</p>
+  </li>
+  <li dir="ltr">
+    <p dir="ltr">Articles and newsletters- has your lawyer had written works published in journals, magazines or online? If your lawyer claims to be an expert in a particular area, they should be able to demonstrate expertise through written works.</p>
+  </li>
+  <li dir="ltr">
+    <p dir="ltr">Does your lawyer&rsquo;s firm have an active website with recent news? </p>
+  </li>
+</ul>
+<p dir="ltr">In short, take your lawyer-dating and due diligence seriously. Solid preparation and basic background checks could save you many headaches and substantial expenses in the long run.</p>
+        
+            <a href="#!/articles/The cat jumped out of the bag" class="right">Read full article</a>
+        </article>
+-->
+        
+    </section>
+</div>
