@@ -1,0 +1,60 @@
+<div ng-show="jobOrEducation == 'JOB' || jobOrEducation == 'EDUCATION'" class="education-select" link-select>Add <a href='javascript:void(0)' class="selected" ng-click="jobOrEducationSwitch('JOB')">job</a> | <a href='javascript:void(0)' ng-click="jobOrEducationSwitch('EDUCATION')">education</a></div>
+<div ng-switch="jobOrEducation">
+<div ng-switch-when="JOB" ng-controller="ProfileItemCtrl" >
+    <form name="jobForm" class="job-form">
+        <a class="error-box" ng-show="error" ng-click="error=false" title="close">{{errorMessage}}</a>
+        <a class="success-box" ng-show="success" ng-click="success=false" title="close">{{successMessage}}</a>
+        <div class="input-field"><label>Job Title</label><input class="smaller" type="text" required="true" ng-model="newProfileItem.title" ng-maxlength="200"></div>
+        <div class="input-field"><label>Company/Organisation</label><input  class="smaller" type="text" required="true" ng-model="newProfileItem.subtitle" ng-maxlength="200"></div>
+        <div class="input-row">
+        <div class="input-field small-half first"><label>Start Date</label><input ui-date="dateOptions" type="text" required="true" ng-model="newProfileItem.startTime"></div>
+        <div class="input-field small-half"><label>End Date</label><input ui-date="dateOptions" type="text" ng-model="newProfileItem.endTime" tooltip="Leave blank for your current position."></input></div>
+        </div>
+        <div class="input-field"><label>Description</label><textarea ng-model="newProfileItem.text" ng-maxlength="1000"></textarea></div>
+        <button class="pink" ng-click="newProfileItem()" href="javascript:void(0)" ng-disabled="jobForm.$invalid || isUnchanged(newProfileItem)">Post</button>
+    </form>
+</div>
+<div ng-switch-when="EDUCATION" ng-controller="ProfileItemCtrl" >
+    <form name="educationForm" class="job-form">
+        <a class="error-box" ng-show="error" ng-click="error=false" title="close">{{errorMessage}}</a>
+        <a class="success-box" ng-show="success" ng-click="success=false" title="close">{{successMessage}}</a>
+        <div class="input-field small-half first"><label>Qualification</label><input class="smaller" type="text" required="true" ng-model="newProfileItem.title" ng-maxlength="200"></div>
+        <div class="input-field small-half"><label>Institution</label><input class="smaller" type="text" required="true" ng-model="newProfileItem.subtitle" ng-maxlength="200"></div>
+        <div class="input-row">
+        <div class="input-field small-half first"><label>Start Date</label><input ui-date="dateOptions" type="text" ng-model="newProfileItem.startTime"></div>
+        <div class="input-field small-half"><label>Graduation Date</label><input ui-date="dateOptions" type="text" ng-model="newProfileItem.endTime"></div>
+        </div>
+        <div class="input-field"><label>Description</label><textarea ng-model="newProfileItem.text" ng-maxlength="1000"></textarea></div>
+        <button class="pink" ng-click="newProfileItem()" href="javascript:void(0)" ng-disabled="educationForm.$invalid || isUnchanged(newProfileItem)">Post</button>
+    </form>
+</div>
+<div ng-switch-when="STATUS_UPDATE" ng-controller="ProfileItemCtrl" >
+    <form name="statusUpdateForm" class="job-form status-update">
+        <a class="error-box" ng-show="error" ng-click="error=false" title="close">{{errorMessage}}</a>
+        <a class="success-box" ng-show="success" ng-click="success=false" title="close">{{successMessage}}</a>
+        <h3>Write something ....</h3>
+        <div class="input-field"><textarea ng-model="newProfileItem.text" ng-maxlength="1000" required="true"></textarea></div>
+        <button class="pink" ng-click="newProfileItem()" href="javascript:void(0)" ng-disabled="statusUpdateForm.$invalid || isUnchanged(newProfileItem)">Post</button>
+    </form>
+</div>
+<div ng-switch-when="ARTICLE" ng-controller="ProfileItemCtrl" ng-init="init(profileItem)">
+    <form name="writeForm" class="job-form">
+        <a class="error-box" ng-show="error" ng-click="error=false" title="close">{{errorMessage}}</a>
+        <a class="success-box" ng-show="success" ng-click="success=false" title="close">{{successMessage}}</a>
+        <h3>Submit an article ....</h3>
+        <div class="input-field"><label>Title</label><input class="smaller" type="text" required="true" ng-model="newProfileItem.title" ng-maxlength="500"></div>
+        <div class="input-field"><label>Subtitle</label><input class="smaller" type="text" ng-model="newProfileItem.subtitle" ng-maxlength="500"></div>
+        <button class="pink" href="javascript:void(0)" ng-disabled="writeForm.$invalid || isUnchanged(newProfileItem)" ng-click="showPopup()">Write</button>
+        <div class="popup article-form-popup" popup-resize>
+	        <a class="close" title="close" ng-click="hidePopup()"></a>
+	        <form name="submitArticleForm" class="job-form">
+	            <h4>Write an Article</h4>
+	            <div class="input-field"><label>Title</label><input class="smaller" type="text" required="true" ng-model="newProfileItem.title" ng-maxlength="500"></div>
+	            <div class="input-field"><label>Subtitle</label><input class="smaller" type="text" ng-model="newProfileItem.subtitle" ng-maxlength="500"></div>
+	            <div class="input-field"><label>Content</label><textarea ckeditor ng-model="newProfileItem.text" ng-maxlength="50000"></textarea></div>
+	            <button class="pink" ng-click="postArticle()" href="javascript:void(0)" popup>Submit for Review</button>
+	        </form>
+	     </div>
+    </form>
+</div>
+</div><!-- ng-switch -->
