@@ -1,0 +1,2 @@
+function UserCtrl($scope,$http) {
+}
