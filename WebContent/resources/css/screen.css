@@ -1,0 +1,3110 @@
+body,textarea,button {
+	font-family: MuseoSans-100, Verdana, Arial, 'Helvetica Neue', Helvetica,
+		sans-serif;
+	padding: 0;
+	margin: 0;
+	color: #333333;
+	font-weight: 100;
+}
+
+.content-width {
+	margin: 0 auto;
+	width: 90%;
+}
+
+.blue-full-banner {
+	background-color: #0094D9;
+	/*background-image: linear-gradient( 45deg, #0094D9, #039ce4 );*/
+	/*background-image: linear-gradient(38deg, #0094D9, #0094D9 50%, #039ce4 50%, #039ce4 100%);*/
+	background-image: -moz-linear-gradient(38deg, #0094D9, #0094D9 50%, #039ce4 50%, #039ce4
+		100%)
+}
+
+.grey-back {
+	background: none repeat scroll 0 0 #F0EFED;
+	padding: 0;
+	overflow: auto;
+	width: 100%;
+	position: relative;
+}
+
+.diagonal {
+	height: 100%;
+	overflow: hidden;
+	position: absolute;
+	width: 100%;
+	z-index: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	top: 0;
+}
+
+.diagonal img {
+	left: 50%;
+	margin-left: -3700px;
+	position: absolute;
+	width: 9000px;
+}
+
+.single-page-content {
+	position: relative;
+}
+
+.single-page-content form {
+	position: relative;
+}
+
+.float-left {
+	float: left;
+}
+
+/****** get the footer to the bottom ******/
+html,body {
+	height: 100%;
+	margin: 0;
+}
+
+.wrapper {
+	display: table;
+	height: 100%;
+	width: 100%;
+}
+
+.content {
+	display: table-row; /* height is dynamic, and will expand... */
+	height: 100%; /* ...as content is added (won't scroll) */
+}
+
+.footer { /*display: table-row;*/
+	background-color: #333333;
+}
+
+/*****   text styles    ****/
+.blue {
+	color: #0094D9;
+}
+
+h1 {
+	font-size: 48px;
+	font-weight: 100;
+}
+
+h1 a {
+	text-decoration: none;
+	color: #0094D9;
+}
+
+h2 {
+	font-size: 34px;
+	font-weight: 100;
+	position: relative;
+}
+
+h3 {
+	color: #0094D9;
+	font-size: 26px;
+}
+
+h4 {
+	font-size: 24px;
+	font-weight: 100;
+}
+
+p {
+	font-size: 21px;
+}
+
+p.quote {
+	font-family: "Century Schoolbook Italic", 'Century Schoolbook', serif;
+	font-size: 22px;
+	font-style: italic;
+	color: #222222;
+}
+
+a {
+	color: #0094D9;
+	text-decoration: none;
+}
+
+article h1,article h1 a {
+	color: #F27490;
+	font-size: 36px;
+}
+
+article p {
+	font-size: 20px;
+}
+
+.white {
+	color: white;
+}
+
+b {
+	font-family: MuseoSans-700, Verdana, Arial, 'Helvetica Neue', Helvetica,
+		sans-serif;
+	font-weight: 100;
+}
+
+/*****   elements    ****/
+button,a.blue,a.grey {
+	border: none;
+	font-size: 22px;
+	cursor: pointer;
+	border-radius: 10px;
+	font-family: MuseoSans-700, Verdana, Arial, 'Helvetica Neue', Helvetica,
+		sans-serif;
+}
+
+button.grey,a.grey {
+	background-color: #333333;
+	color: white;
+}
+
+button.grey:hover,a.grey:hover {
+	background-color: #F27490;
+	color: #0094D9;
+}
+
+button.blue,a.blue {
+	background-color: #0094D9;
+	color: white;
+}
+
+button.blue:hover,a.blue:hover {
+	background-color: #F27490;
+}
+
+button.pink {
+	background-color: #F27490;
+	color: white;
+}
+
+button.pink:hover {
+	background-color: #0094D9;
+}
+
+a.white-button {
+	background-color: #ffffff;
+	color: #333333;
+	border: 1px solid #CCCCCC;
+	font-family: MuseoSans-100, Verdana, Arial, 'Helvetica Neue', Helvetica,
+		sans-serif;
+	border-radius: 5px;
+	padding: 10px 30px;
+	display: block;
+	text-decoration: none;
+	font-size: 22px;
+}
+
+a.white-button:hover {
+	background-color: #333333;
+	color: #ffffff;
+	/*font-family: MuseoSans-700, Verdana, Arial, 'Helvetica Neue', Helvetica, sans-serif;*/
+}
+
+.next-section-down-link {
+	background-image: url(..//images/next-section-down.gif);
+	background-repeat: no-repeat;
+	width: 58px;
+	height: 26px;
+	display: block;
+	margin: 0 auto;
+}
+
+.arrow-left,.arrow-right {
+	background-repeat: no-repeat;
+	display: block;
+	text-decoration: none;
+	cursor: pointer;
+	height: 50px;
+	width: 39px;
+}
+
+.arrow-left:hover,.arrow-right:hover {
+	opacity: 0.8;
+}
+
+.arrow-left {
+	background-image: url(../images/left.gif);
+}
+
+.arrow-right {
+	background-image: url(../images/right.gif);
+}
+
+nav ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	overflow: auto;
+}
+
+nav ul li {
+	float: left;
+}
+
+nav ul li a {
+	text-decoration: none;
+}
+
+.scrollable {
+	opacity: 0.0;
+	position: absolute;
+}
+
+input[type="text"],input[type="password"],input[type="date"],input[type="datetime"],input[type="email"],input[type="number"],input[type="search"],input[type="tel"],input[type="time"],input[type="url"],textarea
+	{
+	background-color: #FFFFFF;
+	border: 1px solid #CCCCCC;
+	border-radius: 2px 2px 2px 2px;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset;
+	color: rgba(0, 0, 0, 0.75);
+	display: block;
+	font-family: MuseoSans-700, Verdana, Arial, 'Helvetica Neue', Helvetica,
+		sans-serif;
+	font-size: 16px;
+	height: 32px;
+	margin: 0 0 12px;
+	padding: 6px 2%;
+	transition: all 0.15s linear 0s;
+	width: 96%;
+	color: #666666;
+}
+
+select {
+	background: transparent;
+	width: 268px;
+	padding: 10px;
+	font-size: 16px;
+	line-height: 1;
+	border: 0;
+	border-radius: 0;
+	height: 44px;
+	-webkit-appearance: none;
+	cursor: pointer;
+	font-family: MuseoSans-700, Verdana, Arial, 'Helvetica Neue', Helvetica,
+		sans-serif;
+	font-size: 16px;
+	color: #666666;
+}
+
+select option {
+	padding: 3px;
+}
+
+.styled-select {
+	width: 240px;
+	height: 44px;
+	overflow: hidden;
+	background: url(../images/select-arrow.png) no-repeat right #ffffff;
+	border: 1px solid #ccc;
+	margin-bottom: 10px;
+}
+
+.styled-select:hover {
+	background-image: url(../images/select-arrow-hover.png);
+}
+
+input.ng-invalid.ng-dirty {
+	background-color: #F27490;
+	color: #333333;
+}
+
+input.ng-valid.ng-dirty {
+	background-color: #78FA89;
+}
+
+button:disabled {
+	background-color: #e8e7e5;
+	color: #666666;
+}
+
+button:disabled:hover {
+	background-color: #e8e7e5;
+	color: #666666;
+	cursor: default;
+}
+
+.checkbox-label {
+	padding-left: 10px;
+}
+
+.checkbox-label a {
+	text-decoration: none;
+	font-family: MuseoSans-700, Verdana, Arial, 'Helvetica Neue', Helvetica,
+		sans-serif;
+	color: #666666;
+}
+
+.radio-container {
+	float: left;
+	width: 35%;
+	padding: 1%;
+	border: 1px solid #cccccc;
+	border-radius: 5px;
+	margin-right: 1%;
+	cursor: pointer;
+}
+
+.radio-container .radio {
+	background-image: url(../images/not-checked.gif);
+	background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+	margin-right: 10px;
+	float: left;
+}
+
+.radio-container .radio.checked {
+	background-image: url(../images/checked.gif);
+}
+
+.radio-field {
+	margin-bottom: 15px;
+	overflow: auto;
+}
+
+.facebook-grey,.twitter-grey,.linkedin-grey {
+	width: 31px;
+	height: 30px;
+	background-repeat: no-repeat;
+	background-position: center;
+	display: block;
+	float: left;
+}
+
+.facebook-grey:hover,.twitter-grey:hover,.linkedin-grey:hover {
+	opacity: 0.5;
+}
+
+.facebook-grey {
+	background-image: url(../images/facebook-grey.png);
+}
+
+.twitter-grey {
+	background-image: url(../images/twitter-grey.png);
+	margin-right: 5px;
+}
+
+.linkedin-grey {
+	background-image: url(../images/linkedin-grey.png);
+}
+
+.calendar {
+	width: 16px;
+	height: 16px;
+	background-image: url(../images/calendar.png);
+	background-repeat: no-repeat;
+	display: block;
+}
+
+a.public {
+	width: 10px;
+	height: 10px;
+	background-image: url(../images/public.gif);
+	margin: 4px 0 0 4px;
+	display: block;
+}
+
+.close {
+	background-image: url(../images/close.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	width: 13px;
+	height: 14px;
+	cursor: pointer;
+}
+
+.close:hover {
+	opacity: 0.5;
+}
+
+.tooltip {
+	position: absolute;
+	display: none;
+	z-index: 999;
+	opacity: 0.95;
+	margin-right: 20px;
+}
+
+.tooltip .image {
+	background-image: url(../images/left-arrow-white.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	float: left;
+	overflow: auto;
+	height: 30px;
+	width: 15px;
+	position: relative;
+	/*top: 4px;*/
+	left: 3px;
+}
+
+.tooltip .text {
+	background-color: #ffffff;
+	margin-left: 17px;
+    padding: 10px;
+	border-radius: 7px;
+	border: 1px solid #cccccc;
+}
+
+/*****   heading    ****/
+header {
+	padding: 30px 0;
+	overflow: auto;
+}
+
+img.logo {
+	height: 53px;
+	width: 269px;
+	border: none;
+}
+
+#header-logo {
+	float: right;
+}
+
+#header-logo:hover {
+	opacity: 0.5;
+}
+
+header nav {
+	padding-top: 12px;
+}
+
+header nav ul li {
+	padding: 0 30px;
+	border-right: 1px solid #CCCCCC;
+	font-size: 22px;
+}
+
+header nav ul li a {
+	color: #333333;
+}
+
+header nav ul li a:hover {
+	color: #0094D9;
+}
+
+header nav ul li.first {
+	padding: 0 30px 0 0;
+}
+
+header nav ul li.last {
+	border: none;
+}
+
+/*****   ask question    ****/
+.blue-full-banner #ask-question {
+	width: 633px;
+	margin: 0 auto;
+	padding: 100px 0;
+}
+
+.blue-full-banner #ask-question h1 {
+	color: white;
+	text-align: center;
+}
+
+.blue-full-banner #welcome {
+	width: 800px;
+	margin: 0 auto;
+	padding: 100px 0;
+}
+
+.blue-full-banner #welcome h1 {
+	color: white;
+}
+
+.blue-full-banner #welcome h1,.blue-full-banner #welcome h2 {
+	text-align: center;
+}
+
+.blue-full-banner #ask-question textarea {
+	width: 613px;
+	height: 166px;
+	border-radius: 9px;
+	padding: 10px;
+	margin-bottom: 30px;
+}
+
+.blue-full-banner #ask-question button,.blue-full-banner #welcome button
+	{
+	margin: 0 auto;
+	display: block;
+	padding: 13px 60px;
+	width: 160px;
+}
+
+/*****   how-it-works    ****/
+#how-it-works {
+	width: 920px;
+	margin: 0 auto;
+	padding: 30px 0 0 0;
+}
+
+#how-it-works h2 {
+	text-align: center;
+	margin: 40px 0;
+}
+
+.sequence-of-three {
+	overflow: auto;
+	margin-bottom: 50px;
+}
+
+.sequence-of-three .dots {
+	background-image: url(../images/dots.gif);
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 184px;
+	width: 58px;
+	float: left;
+	margin-left: 36px;
+}
+
+.sequence-of-three .picture {
+	width: 240px;
+	/*height: 296px;*/
+	float: left;
+}
+
+.sequence-of-three .picture .top {
+	width: 240px;
+	height: 184px;
+	overflow: auto;
+}
+
+.sequence-of-three .picture .text-box {
+	background-image: url(../images/text-box.png);
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.sequence-of-three .picture .text-box p {
+	padding: 20px;
+}
+
+.sequence-of-three .picture .label p {
+	font-size: 18px;
+}
+
+.sequence-of-three .picture .light-bulb {
+	background-image: url(../images/lightbulb-small.png);
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.sequence-of-three .picture .list {
+	background-image: url(../images/list.png);
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+/***************************** video ***************************************/
+
+#video {
+	border-top: 1px solid #cccccc;
+	position: relative;
+	width: 100%;
+}
+
+#video iframe {
+	margin: 50px auto;
+	width: 920px;
+	display: block;
+}
+
+/*****   our-featured-lawyer    ****/
+#our-featured-lawyer {
+	
+}
+
+#our-featured-lawyer h2 {
+	text-align: center;
+	margin: 40px 0;
+	padding-top: 30px;
+}
+
+.featured-lawyer {
+	width: 996px;
+	margin: 0 auto;
+	overflow: auto;
+	margin-bottom: 50px;
+	position: relative;
+}
+
+.featured-lawyer .lawyer-link {
+	float: left;
+	background-color: #59b9e6;
+	display: block;
+	border: none;
+	text-decoration: none;
+}
+
+.featured-lawyer .lawyer-link img {
+	border: none;
+	height: 293px;
+}
+
+.featured-lawyer .lawyer-link img:hover {
+	opacity: 0.9;
+}
+
+.featured-lawyer .text {
+	width: 554px;
+	height: 257px;
+	float: left;
+	display: inline-block;
+	background-color: #59b9e6;
+	margin-left: 2px;
+	color: #3A3A3A;
+	font-size: 24px;
+	padding: 20px;
+}
+
+/*****   latest-news    ****/
+#latest-news {
+	width: 996px;
+	margin: 0 auto 50px auto;
+	overflow: auto;
+	background-color: white;
+	opacity: 0.8;
+	text-align: center;
+	padding: 10px 0 50px 0;
+}
+
+#latest-news h1 {
+	margin: 20px 0;
+}
+
+#latest-news p {
+	padding: 0 40px;
+}
+
+#latest-news a.blue {
+	padding: 5px 30px;
+}
+
+#latest-news ul,#latest-news ol {
+	margin: 10px 80px;
+	list-style-type: none;
+}
+
+#latest-news .text {
+	max-height: 200px;
+	overflow: hidden;
+}
+
+#latest-news article {
+	overflow: auto;
+	display: inline-block;
+	margin-bottom: 20px;
+	width: 100%;
+}
+
+/*********** recent-legal-questions ************/
+.recent-legal-questions-wrapper {
+	padding: 0 0 100px 0;
+	width: 920px;
+	margin: 0 auto;
+	overflow: auto;
+	height: 400px;
+}
+
+.recent-legal-questions-wrapper h2 {
+	text-align: center;
+	margin: 40px 0;
+}
+
+.recent-legal-questions-wrapper .legal-question {
+	width: 420px;
+	float: left;
+}
+
+.recent-legal-questions-wrapper .legal-question.right {
+	margin-left: 80px;
+}
+
+.recent-legal-questions-wrapper .legal-question .from .name {
+	font-size: 15px;
+	font-family: MuseoSans-700, Verdana, Arial, 'Helvetica Neue', Helvetica,
+		sans-serif;
+}
+
+.recent-legal-questions-wrapper .legal-question .from .title {
+	font-size: 14px;
+}
+
+.recent-legal-questions-wrapper .legal-question img {
+	float: right;
+}
+
+#recent-legal-questions .arrow-left {
+	position: relative;
+	top: 200px;
+}
+
+#recent-legal-questions .arrow-right {
+	position: relative;
+	top: 50%;
+	top: 200px;
+	float: right;
+}
+
+/************** footer ***********/
+footer {
+	padding: 15px 0;
+	overflow: auto;
+}
+
+footer nav {
+	float: right;
+}
+
+footer nav ul li a {
+	color: white;
+	font-size: 15px;
+}
+
+footer nav ul li {
+	background-image: url(../images/dot.png);
+	background-repeat: no-repeat;
+	background-position: center right;
+	padding: 0 15px 0 10px;
+}
+
+footer nav ul li.last {
+	background-image: none;
+	padding: 0 0 0 10px;
+}
+
+footer nav ul li a:hover {
+	color: #0094D9;
+}
+
+.facebook-logo,.twitter-logo,.linkedin-logo {
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 28px;
+	height: 23px;
+	float: left;
+	margin-right: 10px;
+	display: block;
+}
+
+.facebook-logo {
+	background-image: url(../images/facebook.png);
+}
+
+.facebook-logo:hover {
+	background-image: url(../images/facebook-hover.png);
+}
+
+.twitter-logo {
+	background-image: url(../images/twitter.png);
+}
+
+.twitter-logo:hover {
+	background-image: url(../images/twitter-hover.png);
+}
+
+.linkedin-logo {
+	background-image: url(../images/linkedin.png);
+}
+
+/*
+.linkedin-logo:hover {
+	background-image: url(../images/linkedin-hover.png);
+}
+*/
+
+/*********** standard page **************/
+.single-page-content {
+	position: relative;
+}
+
+.single-page-content form {
+	position: relative;
+	width: 40%;
+	margin: 0 auto;
+	padding: 20px 0 40px 0;
+}
+
+.single-page-content form label {
+	width: 100%;
+	display: block;
+	font-family: MuseoSans-700, Verdana, Arial, 'Helvetica Neue', Helvetica,
+		sans-serif;
+	padding: 0 0 5px 0;
+}
+
+.single-page-content form button {
+	padding: 8px 20px;
+	margin: 20px auto 0 auto;
+	display: block;
+	width: 190px;
+}
+
+.single-page-content h1 {
+	text-align: center;
+	font-size: 38px;
+	border-bottom: 1px solid #dddddd;
+	padding-bottom: 10px;
+	position: relative;
+}
+
+.single-page-content .error-box,.single-page-content .success-box,.job-form .error-box,.job-form .success-box,.error-box.global,.sign-up-wizard .error-box,.sign-up-wizard .success-box,.response-form .error-box,.edit-response-form .error-box,
+.files .error-box
+	{
+	padding: 20px 2%;
+	border-radius: 5px;
+	font-family: MuseoSans-700, Verdana, Arial, 'Helvetica Neue', Helvetica,
+		sans-serif;
+	margin-bottom: 20px;
+	cursor: pointer;
+	text-decoration: none;
+	display: block;
+	opacity: 0.95;
+	color: #333333;
+}
+
+.single-page-content .error-box,.job-form .error-box,.error-box.global,.sign-up-wizard .error-box,.response-form .error-box,.edit-response-form .error-box,
+.files .error-box
+	{
+	background-color: #F27490;
+}
+
+.single-page-content .success-box,.job-form .success-box,.sign-up-wizard .success-box
+	{
+	background-color: #78FA89;
+}
+
+/************* profile *****************/
+.profile,.lawyer-questions {
+	width: 960px;
+	margin: 0 auto;
+	overflow: show;
+	position: relative;
+}
+
+.profile .background-image {
+	background-image: url(../images/background.png);
+	background-repeat: no-repeat;
+	width: 960px;
+	height: 180px;
+	margin-top: 10px;
+	position: relative;
+	/*
+	border-top: 1px solid #cccccc;
+	border-left: 1px solid #cccccc;
+	border-right: 1px solid #cccccc;
+	*/
+}
+
+.profile .background-image .upload-banner {
+	background-image: url(../images/plus.png);
+	background-position: left;
+	background-repeat: no-repeat;
+	color: #333333;
+	border: 1px solid #CCCCCC;
+	font-family: MuseoSans-100, Verdana, Arial, 'Helvetica Neue', Helvetica,
+		sans-serif;
+	border-radius: 5px;
+	padding: 5px 10px 5px 30px;
+	text-decoration: none;
+	font-size: 12px;
+	width: 120px;
+	position: absolute;
+	top: 5px;
+	left: 795px;
+	cursor: pointer;
+	background-color: #ffffff;
+}
+
+.profile .background-image .upload-banner:hover {
+	background-color: #333333;
+	color: #ffffff;
+	/*font-family: MuseoSans-700, Verdana, Arial, 'Helvetica Neue', Helvetica, sans-serif;*/
+}
+
+.profile .photo .photo-container .upload-profile,
+.sign-up-wizard .photo .photo-container .upload-profile {
+	background-image: url(../images/plus.png);
+	background-position: left;
+	background-repeat: no-repeat;
+	color: #333333;
+	border: 1px solid #CCCCCC;
+	border-radius: 5px;
+	text-decoration: none;
+	width: 35px;
+	height: 16px;
+	position: absolute;
+	cursor: pointer;
+	background-color: #ffffff;
+	top: 149px;
+	left: 130px;
+}
+
+.profile .photo .photo-container .upload-profile:hover {
+	background-color: #333333;
+	color: #ffffff;
+}
+
+.profile .photo{
+	background-color: #ffffff;
+	width: 172px;
+	height: 172px;
+	border: 1px solid #CCCCCC;
+	border-radius: 10px;
+	position: absolute;
+	top: 94px;
+	left: 20px;
+}
+
+.profile .photo .photo-container,.lawyers .lawyer .photo-container,.book-form .lawyer .photo-container,
+.files .file-content .lawyer .photo-container, .sign-up-wizard .photo-container
+	{
+	width: 160px;
+	height: 160px;
+	margin: 7px 0 0 7px;
+	background-image: url(../images/photo.png);
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.top-line {
+	border-top: 1px solid #CCCCCC;
+	padding-top: 10px;
+}
+
+.profile .heading-bottom {
+	border-bottom: 1px solid #CCCCCC;
+	border-left: 1px solid #CCCCCC;
+	border-right: 1px solid #CCCCCC;
+	padding: 0 20px 20px 0;
+}
+
+.profile .first-line {
+	margin: 0 0 0 213px;
+	overflow: auto;
+	min-height: 94px;
+}
+
+.profile h1.name {
+	font-size: 24px;
+	padding: 20px 0 0 0;
+	margin: 0;
+	font-weight: 100;
+}
+
+.profile h1.name {
+	font-size: 24px;
+	padding: 20px 0 0 0;
+	margin: 0;
+	font-weight: 100;
+}
+
+.profile h2.name {
+	font-size: 18px;
+	padding: 0;
+	margin: 0;
+	font-weight: 100;
+	overflow: auto;
+}
+
+.profile .first-line p {
+	margin: 0;
+	padding: 0;
+	font-size: 18px;
+}
+
+.profile .second-line p {
+	margin: 0;
+	padding: 0 0 5px 0;
+	font-size: 16px;
+}
+
+.profile .second-line h2 {
+	margin: 0 0 3px 0;
+	padding: 0 0 2px 0;
+	font-size: 16px;
+	font-family: MuseoSans-700, Verdana, Arial, 'Helvetica Neue', Helvetica,
+		sans-serif;
+	color: #666666;
+	/*border-bottom: 1px solid #eeeeee;*/
+	width: 50%;
+}
+
+.profile .second-line iframe {
+	padding-top: 5px;
+}
+
+.profile .second-line ul {
+	list-style-type: none;
+	margin: 10px 0 0 0;
+	padding: 0;
+}
+
+.profile .second-line ul li {
+	margin-bottom: 3px;
+	color: #111111;
+	font-size: 18px;
+}
+
+.profile .second-line .areas-of-practice-container {
+	border: 1px dashed #eeeeee;
+	padding: 10px;
+	margin-bottom: 10px;
+	width: 50%;
+	border-radius: 5px;
+}
+
+.profile .first-line .right {
+	float: right;
+	padding: 20px 0 0 0;
+	overflow: auto;
+}
+
+.profile .first-line .right iframe {
+	width: 150px;
+}
+
+.profile .first-line .right .text-right {
+	text-align: right;
+}
+
+.profile .first-line .right .text-right a,.profile .first-line .right .text-right h2
+	{
+	margin-bottom: 5px;
+	display: block;
+}
+
+.profile a {
+	font-size: 14px;
+}
+
+.profile .second-line {
+	padding: 0 0 0 20px;
+	overflow: auto;
+}
+
+.profile .second-line .right {
+	float: right;
+	padding-top: 30px;
+}
+
+.profile .second-line .right div.left {
+	float: left;
+	overflow: auto;
+}
+
+.profile .second-line .right .social-media {
+	margin-right: 60px;
+}
+
+.newlines {
+	margin: 20px 0;
+}
+
+.australia {
+	background-image: url(../images/australia.png);
+	background-repeat: no-repeat;
+	height: 22px;
+	width: 23px;
+	margin: 5px 0 10px 0px;
+	float: none;
+}
+
+.profile .second-line .right .admitted {
+	margin-left: 40px;
+}
+
+.profile .second-line .right .admitted-date {
+	background-color: #EEEEEE;
+	padding: 5px 15px;
+	float: none;
+	text-align: center;
+}
+
+.profile .second-line .right .admitted-from {
+	float: right;
+	margin-top: 10px;
+}
+
+.profile .second-line .right .admitted-from a {
+	float: left;
+}
+
+.profile .second-line .right .admitted-from .admitted-label {
+	font-size: 12px;
+	margin: 2px 0 0 5px;
+}
+
+.lawyer-menu {
+	overflow: auto;
+}
+
+.lawyer-menu .buttons {
+	float: right;
+}
+
+.lawyer-menu .buttons a {
+	float: left;
+	margin-left: 10px;
+}
+
+.lawyer-menu a.white-button {
+	padding: 2px 20px 2px 30px;
+	font-size: 14px;
+	background-repeat: no-repeat;
+}
+
+.profile-icon {
+	background-image: url(../images/profile-icon.png);
+	background-repeat: no-repeat;
+	background-position: center left;
+}
+
+.settings-icon {
+	background-image: url(../images/settings.png);
+	background-repeat: no-repeat;
+	background-position: 10px center;
+}
+
+/******************** timeline *****************************/
+.timeline-container {
+	width: 960px;
+	margin: 30px auto 50px auto;
+	overflow: auto;
+}
+
+.timeline-left {
+	width: 610px;
+}
+
+.timeline-right {
+	width: 320px;
+	float: right;
+	margin-left: 30px;
+}
+
+.timeline-container .timeline-left nav {
+	background-color: #0094D9;
+	color: #ffffff;
+	height: 40px;
+	background-image: url(../images/white-corner.png);
+	background-position: center right;
+	background-repeat: no-repeat;
+	margin-right: 0px;
+}
+
+.timeline-left nav li {
+	font-size: 20px;
+	padding: 7px 20px 0 20px;
+	border-right: 1px solid #ffffff;
+	height: 33px;
+	cursor: pointer;
+}
+
+.timeline-left nav li.selected {
+	background-color: #333333;
+	background-image: url(../images/white-arrow.png);
+	background-repeat: no-repeat;
+	background-position: bottom center;
+}
+
+.timeline-left nav li:hover {
+	background-color: #666666;
+}
+
+.timeline-left .timeline-element.item {
+	width: 610px;
+	margin: 20px 0 10px 0;
+	/*float: left;*/
+	background-color: #ffffff;
+	/*border:solid 1px #B4BBCD;*/
+	border: solid 1px #EEEEEE;
+	/*background-color: #fdfcf3;*/
+	min-height: 50px;
+	text-align: justify;
+	word-wrap: break-word;
+	border-radius: 5px;
+}
+
+.timeline-element h1 {
+	font-size: 38px;
+}
+
+.timeline-right button.fill {
+	padding: 5px 0px;
+	width: 100%;
+}
+
+.timeline-right .timeline-element a,.timeline-right .timeline-element h4
+	{
+	text-align: center;
+}
+
+.timeline-right .timeline-element h4 {
+	margin: 20px 0;
+}
+
+.timeline-right .timeline-element .info-box {
+	/*border: 1px solid #CCCCCC;*/
+	border: solid 1px #EEEEEE;
+	padding: 10px 20px;
+	border-radius: 5px;
+}
+
+.timeline-right .timeline-element .info-box .info-box-header {
+	border-bottom: 1px solid #CCCCCC;
+	padding: 0 0 5px 0;
+	margin: 0;
+	font-size: 14px;
+	font-family: MuseoSans-700, Verdana, Arial, 'Helvetica Neue', Helvetica,
+		sans-serif;
+}
+
+.timeline-element p {
+	font-size: 16px;
+}
+
+.timeline-left .timeline-element .status,.timeline-left .timeline-element .job,.timeline-lefte .timeline-element .education
+	{
+	padding: 10px 20px;
+}
+
+.timeline-left .timeline-element .status .heading {
+	padding-bottom: 10px;
+	border-bottom: 1px solid #CCCCCC;
+	overflow: auto;
+}
+
+.timeline-left .timeline-element .status a.edit {
+	float: right;
+	margin-right: 10px;
+	cursor: pointer;
+}
+
+.timeline-left .timeline-element .status  .heading .small-photo,.articles .articles-left article .small-photo,.customer-questions .answers .answer .picture .small-photo,
+.files .small-photo
+	{
+	height: 32px;
+	width: 32px;
+	background-image: url(../images/photo.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 32px 32px;
+	float: left;
+	margin-right: 10px;
+}
+
+.timeline-left .timeline-element .status  .heading .post-photo,.article-posted-by .post-photo
+	{
+	height: 32px;
+	width: 32px;
+	float: left;
+	margin-right: 10px;
+	border: none;
+}
+
+.timeline-left .timeline-element .status .heading p {
+	font-size: 12px;
+	padding: 0;
+	margin: 2px 0 0 0;
+}
+
+.timeline-left .timeline-element .job h1 {
+	font-size: 18px;
+	font-family: MuseoSans-700, Verdana, Arial, 'Helvetica Neue', Helvetica,
+		sans-serif;
+	font-weight: 100;
+	padding: 5px 0 10px 40px;
+	margin: 0;
+	background-image: url(../images/briefcase.png);
+	background-repeat: no-repeat;
+	background-position: top left;
+	height: 30px;
+}
+
+.timeline-left .timeline-element .job h2 {
+	font-size: 16px;
+	font-weight: 100;
+	padding: 0;
+	margin: 0;
+}
+
+.timeline-left .timeline-element .job h3 {
+	font-size: 14px;
+	font-weight: 100;
+	padding: 0;
+	margin: 5px 0 0 0;
+}
+
+.timeline-left .timeline-element .education {
+	overflow: hidden;
+	padding: 0 20px;
+}
+
+.timeline-left .timeline-element .education .wrapper {
+	position: relative;
+	padding-top: 10px;
+}
+
+.timeline-left .timeline-element .education h1 {
+	font-size: 18px;
+	font-family: MuseoSans-700, Verdana, Arial, 'Helvetica Neue', Helvetica,
+		sans-serif;
+	font-weight: 100;
+	padding: 5px 0 15px 40px;
+	margin: auto;
+	background-image: url(../images/graduate.png);
+	background-repeat: no-repeat;
+	background-position: top left;
+	height: 23px;
+	position: relative;
+	display: table;
+}
+
+.timeline-left .timeline-element .education h2 {
+	font-size: 16px;
+	font-weight: 100;
+	padding: 0;
+	margin: 0;
+}
+
+.timeline-left .timeline-element .education p,.timeline-left .timeline-element .education h2
+	{
+	text-align: center;
+}
+
+.timeline-left .timeline-element .education br {
+	display: block;
+	margin: 2px 0;
+}
+
+.timeline-item-controls {
+	float: right;
+	padding: 5px 5px 0 0;
+}
+
+.timeline-item-controls a {
+	display: block;
+}
+
+/************************* lawyer-menu  ***************/
+.lawyer-menu .username-field {
+	font-size: 14px;
+}
+
+.lawyer-menu .username-field .white-button {
+	float: left;
+	margin-right: 20px;
+	cursor: pointer;
+}
+
+/************************ editable *****************/
+.original {
+	cursor: pointer;
+}
+
+input.edit,textarea.edit {
+	display: none;
+}
+
+/***************************** edit-profile *******************/
+.profile-width {
+	width: 960px;
+	margin: 0 auto;
+}
+
+.profile-width .lawyer-menu {
+	margin-bottom: 10px;
+}
+
+.edit-profile-form {
+	padding-bottom: 50px;
+}
+
+.edit-profile-form h2 {
+	font-size: 26px;
+}
+
+.edit-profile-form textarea {
+	height: 200px;
+}
+
+.edit-profile-form .area-of-practise-input td.longer,.sign-up-wizard .area-of-practise-input td.longer
+	{
+	width: 50%;
+}
+
+.edit-profile-form .area-of-practise-input td a,.sign-up-wizard .area-of-practise-input td a
+	{
+	font-size: 22px;
+	margin: 0 20px;
+	cursor: pointer;
+	position: relative;
+	top: -5px;
+	font-family: MuseoSans-700, Verdana, Arial, 'Helvetica Neue', Helvetica,
+		sans-serif;
+}
+
+.edit-profile-form .area-of-practise-input td a:hover,.sign-up-wizard .area-of-practise-input td a:hover
+	{
+	color: #333333;
+}
+
+.edit-profile-form table.areas-of-practise,.sign-up-wizard table.areas-of-practise
+	{
+	border-bottom: 1px solid #cccccc;
+	border-left: 1px solid #cccccc;
+	border-right: 1px solid #cccccc;
+	border-collapse: collapse;
+}
+
+.edit-profile-form table.areas-of-practise td,.sign-up-wizard table.areas-of-practise td
+	{
+	padding: 10px 20px;
+	font-size: 20px;
+	color: #111111;
+	border-top: 1px solid #cccccc;
+}
+
+.edit-profile-form .area-of-practise-input .styled-select,.sign-up-wizard .area-of-practise-input .styled-select
+	{
+	width: 280px;
+}
+
+.edit-profile-form .area-of-practise-input select,.sign-up-wizard .area-of-practise-input select
+	{
+	width: 308px;
+}
+
+/************************ popup *****************************/
+.popup {
+	position: fixed;
+	width: 500px;
+	top: 0;
+	left: 0;
+	border: 1px solid #CCCCCC;
+	background-color: #FFFFFF;
+	opacity: 0.95;
+	border-radius: 10px;
+	-moz-box-shadow: 0 0 5px #888;
+	-webkit-box-shadow: 0 0 5px #888;
+	box-shadow: 0 0 5px #888;
+	z-index: 999;
+	padding: 10px;
+	display: none;
+}
+
+.popup .close {
+	float: right;
+}
+
+.popup .fine-uploader {
+	margin-top: 20px;
+	overflow: auto;
+}
+
+.popup h4 {
+	margin: 10px 0 0 0;
+	text-align: center;
+}
+
+/************************* add job / education **********************/
+.education-select a {
+	color: #333333;
+}
+
+.education-select a.selected {
+	color: #0094D9;
+}
+
+.job-form {
+	margin: 10px 0 20px 0;
+	overflow: auto;
+}
+
+.input-row .input-field.small-half {
+	width: 45%;
+	float: left;
+}
+
+.input-row .input-field.small-half.first {
+	margin-right: 9%;
+}
+
+.job-form label {
+	border: none;
+	font-size: 14px;
+	margin-bottom: 2px;
+}
+
+.input-row .input-field.small-half input,.job-form input.smaller {
+	width: 95%;
+	height: 20px;
+}
+
+.input-row {
+	margin: 3px 0;
+	overflow: auto;
+}
+
+.job-form .input-field textarea {
+	width: 95%;
+	height: 150px;
+}
+
+.job-form button.pink {
+	font-family: MuseoSans-100, Verdana, Arial, 'Helvetica Neue', Helvetica,
+		sans-serif;
+	font-size: 14px;
+	padding: 2px 5px;
+	float: right;
+	border-radius: 5px;
+}
+
+.job-form .error-box,.job-form .success-box {
+	padding: 10px 2%;
+}
+
+.job-form h3 {
+	margin: 0 0 20px 0;
+}
+
+.job-form.status-update {
+	background-color: #E8E7E5;
+	border-radius: 10px;
+	padding: 20px;
+	margin: 0 0 20px 0;
+}
+
+.timeline-left .error-box.global {
+	margin-top: 20px;
+}
+
+/************************** profileitem.html ***********************/
+.timeline-element input.edit {
+	width: 95%;
+	height: 20px;
+}
+
+.timeline-element input.edit.left-margin {
+	margin-left: 20px;
+	width: 90%;
+}
+
+.timeline-element textarea.edit.left-margin {
+	margin-left: 20px;
+	width: 92%;
+}
+
+.timeline-element textarea.edit {
+	margin: 20px 0;
+	height: 150px;
+}
+
+.timeline-element .date-editable {
+	float: left;
+}
+
+.timeline-element .date-editable .edit {
+	width: 100px;
+	height: 10px;
+	font-size: 14px;
+}
+
+.timeline-element h3.date-field {
+	overflow: auto;
+	margin-bottom: 10px;
+}
+
+.timeline-element h3.date-field .to {
+	float: left;
+	margin: 0 5px;
+	height: 10px;
+}
+
+.education .left {
+	float: left;
+	margin-right: 5px;
+}
+
+.education .graduation-date {
+	display: table;
+	margin: 10px auto 0 auto;
+}
+
+.loading {
+	background-image: url(../images/loading.gif);
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 32px;
+	height: 32px;
+	margin: 5px auto;
+}
+
+/************************* sign up wizard ****************************/
+.sign-up-wizard .popup {
+	display: block;
+	width: 680px;
+	position: absolute;
+}
+
+.sign-up-wizard .popup h3 {
+	text-align: center;
+}
+
+.sign-up-wizard .popup h4 {
+	margin: 10px 0 20px 0;
+}
+
+.sign-up-wizard .popup form {
+	margin: 0 10px 20px 10px;
+}
+
+.sign-up-wizard .popup form button.blue {
+	padding: 5px 10px;
+	display: table;
+	margin: auto;
+	width: 150px;
+}
+
+.sign-up-wizard .popup form textarea {
+	height: 150px;
+}
+
+.sign-up-wizard a.skip-link {
+	float: left;
+	position: absolute;
+}
+
+.sign-up-wizard ul {
+	display: table;
+	margin: 10px auto;
+	text-align: center;
+	list-style: none;
+}
+
+.sign-up-wizard ul li {
+	margin-bottom: 5px;
+}
+
+.sign-up-wizard iframe,.sign-up-wizard .linkedin-share {
+	margin: 5px 200px;
+}
+
+.sign-up-wizard .areas-of-practise {
+	margin-bottom: 30px;
+}
+
+.sign-up-wizard .photo{
+	background-color: #ffffff;
+	width: 172px;
+	height: 172px;
+	border: 1px solid #CCCCCC;
+	border-radius: 10px;
+	position: relative;
+	top: auto;
+	left: auto;
+	float: left;
+	margin-right: 20px;
+}
+
+.sign-up-wizard .center-photo {
+	overflow: auto;
+	margin-bottom: 20px;
+}
+
+.sign-up-wizard .qq-upload-list {
+    margin: 0;	
+}
+}
+
+/******************** lawyers ***************/
+.lawyers h1 {
+	text-align: center;
+	position: relative;
+	margin-bottom: 40px;
+	padding-top: 20px;
+}
+
+.lawyers .lawyer,.book-form .lawyer{
+	display: table;
+	margin: 0 auto;
+	overflow: auto;
+	margin-bottom: 50px;
+	position: relative;
+}
+
+.files .file-content .lawyer {
+	overflow: auto;
+	margin-bottom: 50px;
+	position: relative;
+}
+
+.lawyers .lawyer .lawyer-link,.book-form .lawyer .lawyer-link,
+.files .file-content .lawyer .lawyer-link {
+	float: left;
+	background-color: #59b9e6;
+	display: block;
+	border: none;
+	text-decoration: none;
+}
+
+.lawyers .lawyer .text,.book-form .lawyer .text {
+	width: 554px;
+	float: left;
+	display: inline-block;
+	background-color: #59b9e6;
+	margin-left: 2px;
+	color: #3A3A3A;
+	font-size: 24px;
+	padding: 20px;
+	min-height: 120px;
+}
+
+.files .file-content .lawyer .text {
+	background-color: #59b9e6;
+	margin-left: 162px;
+	color: #3A3A3A;
+	font-size: 24px;
+	padding: 20px;
+	min-height: 120px;
+	border-radius: 10px;
+}
+
+.book-form .lawyer .text,
+.files .file-content .lawyer .text {
+	background-color: #0095da;
+}
+
+.book-form .lawyer .text:hover,
+.files .file-content .lawyer .text:hover {
+	background-color: #59b9e6;
+}
+
+.lawyers .lawyer .text:hover {
+	background-color: #0095da;
+}
+
+.lawyers .lawyer .photo-container,.book-form .lawyer .photo-container,
+.files .file-content .lawyer .photo-container {
+	float: left;
+	margin: 0;
+}
+
+.lawyers .lawyer .photo-container:hover,.book-form .lawyer .photo-container:hover,
+.files .file-content .lawyer .photo-container:hover
+	{
+	opacity: 0.8;
+}
+
+.lawyers .lawyer .admitted-label,.book-form .lawyer .admitted-label,
+.files .file-content .lawyer .admitted-label {
+	font-size: 14px;
+	color: white;
+	float: right;
+}
+
+.lawyers .lawyer .admitted-label p {
+	font-size: 12px;
+	margin: 2px 0 0 0;
+	text-align: right;
+}
+
+.lawyers .lawyer .admitted-label p.points {
+	font-size: 20px;
+	margin: 10px 0 0 0;
+	color: #333333;
+}
+
+.lawyers .lawyer h2,.book-form .lawyer h2, .files .file-content .lawyer h2 {
+	text-align: left;
+	font-size: 26px;
+	color: #ffffff;
+	margin: 0 0 5px 0;
+	font-family: MuseoSans-700, Verdana, Arial, 'Helvetica Neue', Helvetica,
+		sans-serif;
+}
+
+.lawyers .lawyer h3,.book-form .lawyer h3, .files .file-content .lawyer h3 {
+	font-size: 24px;
+	color: #ffffff;
+	margin: 0 0 5px 0;
+}
+
+.lawyers .lawyer h4,.book-form .lawyer h4, .files .file-content .lawyer h4 {
+	font-size: 20px;
+	margin: 0;
+	padding: 0;
+	font-family: MuseoSans-700, Verdana, Arial, 'Helvetica Neue', Helvetica,
+		sans-serif;
+}
+
+.lawyers .lawyer ul,.book-form .lawyer ul, .files .file-content .lawyer ul {
+	list-style-type: none;
+	margin: 5px 0 0 0;
+	padding: 0;
+}
+
+.lawyers .lawyer ul li,.book-form .lawyer ul li, .files .file-content .lawyer ul li {
+	font-size: 20px;
+}
+
+.lawyers .loading {
+	position: relative;
+	margin: 0 auto 40px auto;
+}
+
+/********************** twitter widget **********************/
+.twitter-widget {
+	position: relative;
+}
+
+#latest-news-twitter {
+	width: 996px;
+	margin: 0 auto 50px auto;
+	overflow: auto;
+	background-color: white;
+	text-align: center;
+	padding: 10px 0 50px 0;
+	position: relative;
+}
+
+#latest-news-twitter h1 {
+	margin: 30px 0 50px 0;
+	position: relative;
+}
+
+/******************* terms ******************/
+.terms {
+	margin-bottom: 80px;
+}
+
+.terms li {
+	font-size: 21px;
+	margin-bottom: 10px;
+}
+
+.terms ul {
+	list-style-type: square;
+}
+
+/***************** article form *****************/
+.article-form-popup {
+	width: 700px;
+}
+
+.article-form-popup button {
+	margin-top: 20px;
+}
+
+.article-content-summary {
+	max-height: 200px;
+	overflow: hidden;
+	padding-bottom: 10px;
+}
+
+a.read-full-article {
+	display: inline-block;
+	padding: 10px 0 0;
+	position: relative;
+}
+
+/****************** articles ************************/
+.articles {
+	margin-bottom: 50px;
+}
+
+.articles .articles-right {
+	float: right;
+	border-left: 1px solid #CCCCCC;
+	max-width: 300px;
+	margin-top: 30px;
+	padding: 10px;
+	margin-left: 20px;
+	height: 100%;
+}
+
+.articles .articles-right h3 {
+	font-size: 28px;
+	color: #333333;
+	padding: 0 10px 10px 10px;
+	margin: 0 0 0 0;
+}
+
+.articles .articles-right ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+.articles .articles-right ul li {
+	list-style-type: none;
+	padding: 0 10px 5px 10px;
+	font-size: 16px;
+}
+
+.articles .articles-right ul li a {
+	color: #333333;
+}
+
+.articles .articles-right ul li a:hover {
+	color: #0094D9;
+}
+
+.articles .articles-title {
+	margin: 0;
+	padding: 5px 0 15px 0;
+	font-size: 48px;
+	border-bottom: 1px solid #CCCCCC;
+	text-align: center;
+}
+
+.articles .articles-title a {
+	color: #333333;
+}
+
+.articles .articles-right .center-link {
+	text-align: center;
+	display: block;
+	margin-top: 10px;
+	cursor: pointer;
+}
+
+.articles .articles-left {
+	max-width: 1000px;
+	margin-top: 30px;
+}
+
+.articles .articles-left article {
+	border-bottom: 1px solid #cccccc;
+	padding-bottom: 20px;
+	margin-bottom: 40px;
+}
+
+.articles .articles-left article h1 {
+	font-size: 48px;
+	color: #333333;
+	margin: 15px 0;
+	cursor: pointer;
+}
+
+.articles .articles-left article h1:hover {
+	font-size: 48px;
+	color: #333333;
+	margin: 15px 0;
+	cursor: pointer;
+}
+
+.articles .articles-left article a.title {
+	font-size: 48px;
+	color: #333333;
+	margin: 10px 0;
+	display: block;
+}
+
+.articles .articles-left article a.title:hover {
+	color: #F27490;
+}
+
+.articles .articles-left article h2 {
+	font-size: 36px;
+	color: #0093D8;
+	margin: 15px 0;
+	padding: 0;
+}
+
+strong {
+	font-family: MuseoSans-700, Verdana, Arial, 'Helvetica Neue', Helvetica,
+		sans-serif;
+	font-weight: 100;
+}
+
+.articles .articles-left article .article-posted-by {
+	margin: 15px 0;
+}
+
+.articles .articles-left article .article-posted-by .text {
+	font-size: 22px;
+	position: relative;
+	top: 2px;
+}
+
+.articles .articles-left article .article-posted-by .text a {
+	color: #333333;
+}
+
+.articles .articles-left article a.right {
+	float: right;
+}
+
+.articles .articles-left .article-content {
+	max-height: 1000px;
+	overflow: hidden;
+}
+
+.articles .articles-left .article-content.single {
+	max-height: none;
+	overflow: visible;
+}
+
+/******************** ask question form **********************/
+.ask-question-form textarea {
+	height: 166px;
+	border-radius: 9px;
+	padding: 10px;
+	margin-bottom: 30px;
+}
+
+.ask-question-form textarea.ng-invalid.ng-dirty {
+	background-color: #F27490;
+	color: #333333;
+}
+
+.ask-question-form textarea.ng-valid.ng-dirty {
+	background-color: #78FA89;
+}
+
+.ask-question-form h2 {
+	color: #F37492;
+	font-size: 32px;
+	text-align: center;
+}
+
+.ask-question-form .styled-select {
+	width: 100%;
+}
+
+.ask-question-form select {
+	width: 110%;
+}
+
+.ask-question-form .checkbox {
+	font-family: MuseoSans-700, Verdana, Arial, 'Helvetica Neue', Helvetica,
+		sans-serif;
+	margin: 20px 0;
+}
+
+/************************ about us *****************************/
+.single-page-content .blue-header {
+	background-image: url(../images/blue-diagonal.svg);
+	background-position: 50px 0;
+	background-repeat: no-repeat;
+	height: 107px;
+	position: relative;
+	margin: 0;
+	border: 0;
+	padding: 0;
+}
+
+.single-page-content .blue-header .content {
+	display: block;
+	text-align: left;
+	font-size: 48px;
+	width: 70%;
+	margin: 0 auto;
+	padding-top: 20px;
+}
+
+.static-page-content {
+	width: 70%;
+	margin: 0 auto 50px auto;
+}
+
+.static-page-content p,.static-page-content h2,.static-page-content h3 {
+	position: relative;
+}
+
+.static-page-content h2 {
+	color: #0093D8;
+}
+
+.static-page-content h3 {
+	color: #333333;
+	font-size: 32px;
+	font-weight: 100;
+}
+
+.team-member {
+	position: relative;
+	margin-top: 50px;
+}
+
+.team-member .team-member-left {
+	float: left;
+	height: 150px;
+	width: 210px;
+	background-position: left center;
+	background-repeat: no-repeat;
+	position: relative;
+}
+
+.team-member .team-member-left.alon {
+	background-image: url(../images/alon.png);
+}
+
+.team-member .team-member-left.eden {
+	background-image: url(../images/eden.png);
+}
+
+.team-member .team-member-left.gid {
+	background-image: url(../images/gid-diamond.png);
+}
+
+.team-member .team-member-right {
+	margin-left: 210px;
+}
+
+.team-member .team-member-right h4 {
+	margin: 10px 0;
+}
+
+/******************************** lawyers join us *********************/
+.static-page-content .way-to-connect {
+	margin: 10px 0;
+}
+
+.static-page-content .way-to-connect .image {
+	background-repeat: no-repeat;
+	background-position: left top;
+	width: 180px;
+	height: 110px;
+	position: relative;
+	float: left;
+}
+
+.static-page-content .way-to-connect .image.question {
+	background-image: url(../images/speech.png);
+}
+
+.static-page-content .way-to-connect .image.cart {
+	background-image: url(../images/cart.png);
+}
+
+.static-page-content .way-to-connect h2.pink {
+	color: #F27490;
+}
+
+.static-page-content .box {
+	width: 26px;
+	height: 26px;
+	float: left;
+	margin: 7px 20px 0 0;
+	border-radius: 5px;
+}
+
+.static-page-content .box.blue {
+	background-color: #0094D9;
+}
+
+.static-page-content .box.pink {
+	background-color: #F27490;
+}
+
+.static-page-content .box.grey {
+	background-color: #666666;
+}
+
+.static-page-content a.blue {
+	padding: 15px 35px;
+	margin: 20px 0 50px 0;
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+}
+
+.static-page-content a.blue:hover {
+	background-color: #F27490;
+}
+
+/************************ customer questions *****************************/
+.questions-icon {
+	background-image: url(../images/questions-icon.png);
+	background-repeat: no-repeat;
+	background-position: 10px center;
+}
+
+.customer-questions {
+	margin: 20px 0 30px 0;
+	overflow: auto;
+}
+
+.customer-questions .questions {
+	width: 50%;
+	float: left;
+	/*margin-top: 35px;*/
+}
+
+/*
+.customer-questions .questions h4 {
+	height: 35px;
+	margin: 0;
+	padding: 0;
+}
+*/
+.customer-questions .answers {
+	width: 50%;
+	float: right;
+}
+
+.customer-questions .questions .question {
+	background-color: #CCCCCC;
+	border-radius: 10px;
+	width: 95%;
+	margin: 0 5% 30px 0;
+	padding: 2%;
+	cursor: pointer;
+}
+
+.customer-questions .questions .question.selected,.customer-questions .questions .question:hover
+	{
+	background-color: #0094D9;
+}
+
+.customer-questions .questions .question .text {
+	background-color: #ffffff;
+	padding: 2%;
+	border-radius: 10px;
+	word-wrap: break-word;
+	text-wrap: break-word;
+	max-width: 1000px;
+}
+
+.customer-questions .questions .question .details {
+	overflow: auto;
+	margin-top: 2%;
+}
+
+.customer-questions .questions .question .details div {
+	float: left;
+}
+
+.customer-questions .questions .question .details .icon,.lawyer-questions .questions .question .icon
+	{
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 19px;
+	width: 18px;
+	margin: 0 1.5% 0 2%;
+}
+
+.customer-questions .questions .question .details .label {
+	margin-right: 2%;
+	font-family: MuseoSans-700, Verdana, Arial, 'Helvetica Neue', Helvetica,
+		sans-serif;
+}
+
+.customer-questions .questions .question.selected .details .label {
+	color: #ffffff;
+}
+
+.customer-questions .questions .question .details .calendar-icon-white,.lawyer-questions .questions .question .calendar-icon-white
+	{
+	background-image: url(../images/calendar-icon-white.png);
+}
+
+.customer-questions .questions .question .details .question-icon-white,.lawyer-questions .questions .question .text-and-info .info .row .question-icon-white
+	{
+	background-image: url(../images/question-icon-white.png);
+}
+
+.customer-questions .questions .question .details .tick-icon-white,.lawyer-questions .questions .question .text-and-info .info .row .tick-icon-white
+	{
+	background-image: url(../images/tick-icon-white.png);
+}
+
+.customer-questions .answers .answer {
+	width: 97%;
+	margin: 0 0 30px 3%;
+}
+
+.customer-questions .answers .answer .picture {
+	float: left;
+	position: relative;
+	top: 15px;
+}
+
+.customer-questions .answers .answer .picture .post-photo {
+	height: 32px;
+	width: 32px;
+	margin-right: 10px;
+}
+
+.customer-questions .answers .answer .left-triangle {
+	float: left;
+	position: relative;
+	top: 15px;
+	left: 1px;
+	width: 17px;
+	height: 34px;
+	background-image: url(../images/left-triangle.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	z-index: 2;
+}
+
+.customer-questions .answers .answer .box {
+	border: 1px solid #CCCCCC;
+	border-radius: 10px;
+	padding: 2%;
+	overflow: auto;
+}
+
+.customer-questions .answers .answer .box .text {
+	margin-bottom: 10px;
+	word-wrap: break-word;
+	max-width: 1000px;
+}
+
+.customer-questions .answers .answer .details {
+	margin-top: 15px;
+}
+
+.customer-questions .answers .answer .details .icon {
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 19px;
+	width: 18px;
+	margin: 0 1.5% 0 2%;
+	display: block;
+	float: left;
+}
+
+.customer-questions .answers .answer .details .label {
+	float: left;
+}
+
+.customer-questions .answers .answer .details .calendar-icon-grey {
+	background-image: url(../images/calendar-icon-grey.png);
+}
+
+.customer-questions .answers .answer .details .tick-icon-grey {
+	background-image: url(../images/tick-icon-grey.png);
+	margin: 0;
+	width: 100px;
+	cursor: pointer;
+	background-position: left;
+	padding: 0 0 0 28px;
+	color: #333333;
+	background-repeat: no-repeat;
+	background-position: left;
+	height: 19px;
+	display: block;
+	float: left;
+}
+
+.customer-questions .answers .answer .details .tick-icon-grey:hover,.customer-questions .answers .answer .details .tick-icon-grey.selected
+	{
+	background-image: url(../images/tick-icon-green.png);
+	color: #0094D9;
+}
+
+.customer-questions .answers .answer .details .cross-icon-grey {
+	background-image: url(../images/cross-icon-grey.png);
+	margin: 0;
+	width: 100px;
+	cursor: pointer;
+	background-position: left;
+	padding: 0 0 0 28px;
+	color: #333333;
+	background-repeat: no-repeat;
+	background-position: left;
+	height: 19px;
+	display: block;
+	float: left;
+}
+
+.customer-questions .answers .answer .details .cross-icon-grey:hover,.customer-questions .answers .answer .details .cross-icon-grey.selected
+	{
+	background-image: url(../images/cross-icon-red.png);
+	color: #0094D9;
+}
+
+.customer-questions .answers .answer .details .actions {
+	float: right;
+}
+
+.customer-questions .answers .load-more-answers {
+	float: right;
+}
+
+.customer-questions .answers .answer button.pink {
+	font-family: MuseoSans-100, Verdana, Arial, 'Helvetica Neue', Helvetica,
+		sans-serif;
+	font-size: 16px;
+	border-radius: 0px;
+	padding: 3px 20px;
+	float: left;
+}
+
+.marketplace-icon {
+	background-image: url(../images/marketplace-icon.png);
+	background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+}
+
+.hand-icon-small {
+	background-image: url(../images/hand-icon-small.png);
+	background-repeat: no-repeat;
+	width: 15px;
+	height: 15px;
+}
+
+.customer-questions .answers .answer .marketplace-icon,.customer-questions .answers .answer .hand-icon-small
+	{
+	float: left;
+	margin: 0 10px 0 20px;
+}
+
+.customer-questions .answers .answer .box .details {
+	font-family: MuseoSans-700, Verdana, Arial, 'Helvetica Neue', Helvetica,
+		sans-serif;
+}
+
+/*
+.customer-questions .answers nav {
+	overflow: auto;
+	width: 100%;
+	display: block;
+	margin-bottom: 15px;
+}
+
+.customer-questions .answers nav ul {
+	float: right;
+}
+
+.customer-questions .answers nav ul li {
+	border-right: 1px solid #0094D9;
+	padding: 0 20px;
+}
+
+.customer-questions .answers nav ul li.selected a {
+	color: #333333;
+	font-family: MuseoSans-700, Verdana, Arial, 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+.customer-questions .answers nav ul li a:hover {
+	color: #333333;
+}
+
+.customer-questions .answers nav ul li.last {
+	border: none;
+	padding: 0 0 0 20px;
+}
+*/
+
+/******************************** lawyer questions *************************/
+.lawyer-questions {
+	overflow: auto;
+	margin-bottom: 50px;
+}
+
+.lawyer-questions .questions .question {
+	background-color: #CCCCCC;
+	border-radius: 10px;
+	padding: 15px;
+	margin-top: 30px;
+	overflow: auto;
+}
+
+.lawyer-questions .questions .question .heading {
+	margin: 5px 0 15px 10px;
+}
+
+.lawyer-questions .questions .question .text {
+	background-color: #ffffff;
+	padding: 15px;
+	border-radius: 10px;
+	width: 710px;
+	float: left;
+	word-wrap: break-word;
+	text-wrap: break-word;
+	max-width: 1000px;
+}
+
+.lawyer-questions .questions .question .info {
+	float: left;
+	margin-left: 15px;
+	font-family: MuseoSans-700, Verdana, Arial, 'Helvetica Neue', Helvetica,
+		sans-serif;
+}
+
+.lawyer-questions .questions .question .text-and-info {
+	overflow: auto;
+}
+
+.lawyer-questions .questions .question .text-and-info .info .row {
+	margin: 10px 0;
+	padding-top: 3px;
+	overflow: auto;
+}
+
+.lawyer-questions .questions .question .text-and-info .info .row div {
+	float: left;
+}
+
+.lawyer-questions .questions .question .text-and-info .info .row .icon {
+	margin: 0;
+	width: 36px;
+	display: block;
+	float: left;
+}
+
+table.write-a-response {
+	width: 740px;
+	margin: 15px 0 0 0;
+}
+
+table.write-a-response td.label {
+	width: 150px;
+	padding-left: 15px;
+}
+
+table.write-a-response td input[type="text"] {
+	margin: 0;
+	border-radius: 10px;
+}
+
+.write-response .response-form .left label,.write-response .editresponse-form .left label
+	{
+	margin: 15px 0 5px 0;
+	display: block;
+}
+
+.write-response .response-form .left textarea,.write-response .edit-response-form .left textarea
+	{
+	height: 200px;
+	border-radius: 10px;
+	margin: 0;
+	padding: 0;
+	width: 95.8%;
+	padding: 2%;
+}
+
+.write-response .response-form .left .buttons,.write-response .edit-response-form .left .buttons
+	{
+	float: right;
+}
+
+.write-response .response-form .left button.grey,.write-response .response-form .left a.grey,.write-response .edit-response-form .left button.grey,.write-response .edit-response-form .left a.grey
+	{
+	padding: 7px 25px;
+	margin: 10px auto 0 auto;
+	font-size: 18px;
+}
+
+.lawyer-questions .questions .question.selected {
+	background-color: #0094D9;
+	color: #ffffff;
+}
+
+.lawyer-questions .questions .question.selected div.text {
+	color: #333333;
+	word-wrap: break-word;
+	mad-width: 1000px;
+}
+
+.write-response .answered,.write-response .edit-response {
+	margin: 15px 0 5px 15px;
+	font-family: MuseoSans-700, Verdana, Arial, 'Helvetica Neue', Helvetica,
+		sans-serif;
+}
+
+.write-response .answered a {
+	margin-left: 15px;
+}
+
+.question.selected .write-response .answered a {
+	color: #ffffff;
+}
+
+.write-response .answered .right,.write-response .edit-response .right {
+	float: right;
+	font-family: MuseoSans-100, Verdana, Arial, 'Helvetica Neue', Helvetica,
+		sans-serif;
+	font-size: 14px;
+}
+
+.write-response .tick-icon-green {
+	background-image: url(../images/tick-icon-green.png);
+	margin: 0 0 0 10px;
+	width: 18px;
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 19px;
+	display: inline-block;
+	float: right;
+}
+
+.write-response .cross-icon-grey {
+	background-image: url(../images/cross-icon-grey.png);
+	margin: 0 0 0 10px;
+	width: 18px;
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 19px;
+	display: inline-block;
+	float: right;
+}
+
+.write-response .edit-response {
+	margin: 15px 0 5px 0px;
+}
+
+.write-response .edit-response .left-margin {
+	margin-left: 15px;
+}
+
+.write-response .edit-response .left {
+	margin-top: 10px;
+	overflow: auto;
+}
+
+.write-response h4 {
+	font-size: 20px;
+}
+
+.lawyer-questions .heading .type-of-question {
+	position: absolute;
+	left: 780px;
+}
+
+.green-dollar {
+	background-image: url(../images/green-dollar.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 16px;
+	height: 29px;
+}
+
+.write-response .green-dollar,.lawyer-questions .heading .type-of-question .green-dollar,.lawyer-questions .heading .type-of-question .pro-bono-hand
+	{
+	float: left;
+}
+
+.write-response .green-dollar {
+	margin-right: 10px;
+}
+
+.lawyer-questions .heading .type-of-question .label {
+	float: left;
+	padding: 5px 0 0 10px;
+	font-family: MuseoSans-700, Verdana, Arial, 'Helvetica Neue', Helvetica,
+		sans-serif;
+}
+
+.lawyer-questions .heading .type-of-question .label.pro-bono {
+	padding-top: 7px;
+}
+
+.pro-bono-hand {
+	background-image: url(../images/pro-bono-hand.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 30px;
+	height: 31px;
+}
+
+.write-response table.fees {
+	width: 100%;
+	height: 25px;
+}
+
+.write-response table.fees td.label {
+	width: 17%;
+}
+
+.write-response table.fees td.input {
+	width: 29%;
+}
+
+.write-response table.fees td input {
+	width: 96%;
+	height: 25px;
+	border-radius: 7px;
+	margin: 0;
+}
+
+.write-response table.fees td input.right-margin {
+	width: 92%;
+	margin-right: 4%;
+}
+
+.lawyer-questions .questions .question .response-fees {
+	margin: 10px 0 10px 15px;
+}
+
+.lawyer-questions .questions .question .response-fees span.grey {
+	color: #333333;
+}
+
+.lawyer-questions .questions .question .quote-text .label {
+	margin: 10px 0 10px 15px;
+}
+
+.lawyer-questions .questions .question .quote-text .text {
+	font-family: MuseoSans-100, Verdana, Arial, 'Helvetica Neue', Helvetica,
+		sans-serif;
+	margin-left: 15px;
+	width: 695px;
+	float: none;
+}
+
+.lawyer-questions .questions .question .quote-text button {
+	padding: 7px 25px;
+	float: right;
+}
+
+/********************** account-settings **********************/
+.account-settings {
+	width: 40%;
+	margin: 0 auto;
+	padding: 20px 0 40px;
+	position: relative;
+}
+
+.account-settings form {
+	margin: 0 auto;
+	padding: 0;
+	position: relative;
+	width: 100%;
+}
+
+.customer-settings .single-page-content {
+	margin-top: 10px;
+}
+
+.login-form h2 {
+	text-align: center;
+}
+
+.account-settings .input-field.bottom-margin {
+	margin-bottom: 10px;
+}
+
+/******************************* book **********************************/
+.single-page-content .book-form {
+	width: 756px;
+}
+
+.single-page-content .book-form .question,.single-page-content .book-form .legal-service,
+.files .file-content .question, .files .file-content .legal-service,
+.files .file-content .feedback-box
+	{
+	background-color: #cccccc;
+	border-radius: 10px;
+	padding: 20px;
+	margin-bottom: 30px;
+}
+
+.single-page-content .book-form .legal-service,
+.files .file-content .legal-service{
+	background-color: #0094D9;
+}
+
+.single-page-content .book-form .question h2, .single-page-content .book-form .legal-service h2,
+.files .file-content .question h2, .files .file-content .legal-service h2,
+.files .file-content .feedback-box h2
+	{
+	font-size: 18px;
+	margin: 0 0 15px 0;
+	padding: 0;
+	font-family: MuseoSans-700, Verdana, Arial, 'Helvetica Neue', Helvetica,
+		sans-serif;
+}
+
+.single-page-content .book-form .legal-service h2,
+.files .file-content .legal-service h2 {
+	color: #ffffff;
+}
+
+.single-page-content .book-form .question .text,.single-page-content .book-form .legal-service .text,
+.files .file-content .question .text,.files .file-content .legal-service .text,
+.files .file-content .feedback-box .text
+	{
+	background-color: #ffffff;
+	border-radius: 10px;
+	padding: 10px;
+	word-wrap: break-word;
+	max-width: 1600px;
+}
+
+.single-page-content .book-form h3 {
+	font-family: MuseoSans-100, Verdana, Arial, 'Helvetica Neue', Helvetica,
+		sans-serif;
+	font-weight: 100;
+}
+
+.single-page-content .book-form table.three-column-input {
+	width: 100%;
+}
+
+.single-page-content .book-form table.three-column-input td.two-col {
+	width: 50%;
+}
+
+.single-page-content .book-form table.three-column-input td.one-col {
+	width: 25%;
+}
+
+.visa-mastercard {
+	width: 155px;
+	height: 45px;
+	background-image: url(../images/visa-mastercard.png);
+	background-repeat: no-repeat;
+	background-position: center top;
+}
+
+.single-page-content .book-form table.three-column-input.no-margin td input,.single-page-content .book-form table.three-column-input.no-margin td .styled-select
+	{
+	margin: 0;
+}
+
+ul.autocomplete {
+	position: absolute;
+	list-style-type: none;
+	padding: 5px 0;
+	margin: 0;
+	background-color: #ffffff;
+	max-height: 200px;
+	overflow: auto;
+	border-bottom: 1px solid #cccccc;
+}
+
+ul.autocomplete li {
+	margin: 0;
+	padding: 5px 0;
+	font-family: MuseoSans-700, Verdana, Arial, 'Helvetica Neue', Helvetica,
+		sans-serif;
+	font-size: 16px;
+	color: #666666;
+	cursor: pointer;
+}
+
+ul.autocomplete li:hover,ul.autocomplete li.selected {
+	background-color: #0094D9;
+}
+
+.single-page-content .book-form .error-box {
+	margin-top: 10px;
+}
+
+.single-page-content .book-form .quote,
+.files .file-content .quote { /*background-color: #0094D9;*/
+	font-family: MuseoSans-700, Verdana, Arial, 'Helvetica Neue', Helvetica,
+		sans-serif;
+	/*color: #ffffff;*/
+	color: #333333;
+	border: 1px solid #cccccc;
+	border-radius: 10px;
+	padding: 20px;
+	margin-bottom: 30px;
+}
+
+.single-page-content .book-form .quote td,
+.files .file-content .quote td {
+	padding: 5px 20px 5px 0;
+}
+
+.single-page-content .book-form .quote td.blue,
+.files .file-content .quote td.blue {
+	color: #0094D9;
+}
+
+.single-page-content .book-form .card-select a {
+	font-family: MuseoSans-700, Verdana, Arial, 'Helvetica Neue', Helvetica,
+		sans-serif;
+}
+
+/******************************************* files ******************************************/
+.files-icon {
+	background-image: url(../images/files-icon.png);
+	background-repeat: no-repeat;
+	background-position: 10px center;
+}
+
+.subheading {
+	height: 44px;
+}
+
+.files {
+	margin: 20px 0 50px 0;
+}
+
+.files .list {
+    padding: 0;
+	margin: 0 15px 20px 0;
+	/*position: absolute;*/
+	overflow: auto;
+	width: 269px;
+	/*left:0;*/
+	float: left;
+}
+
+.files .file-content {
+	padding: 0;
+	margin: 0;
+	/*position: absolute;
+	left: 309px;*/
+	overflow: auto;
+	/*right: 0;*/
+}
+
+.files ul.list {
+	list-style-type: none;
+}
+
+.files ul.list a {
+	margin-top: 10px;
+	display: block;
+}
+
+.files ul.list li {
+	border: 1px solid #cccccc;
+	overflow: auto;
+	width: 250px;
+}
+
+.files ul.list li:hover,
+.files ul.list li.selected {
+	background-color: #0094D9;
+	color: #ffffff;
+	font-family: MuseoSans-700, Verdana, Arial, 'Helvetica Neue', Helvetica,
+		sans-serif;
+    cursor: pointer;
+}
+
+.files ul.list li .label {
+	font-size: 18px;
+	position: relative;
+	top: 5px;
+}
+
+.files .file-content h1 {
+	font-size: 40px;
+	margin: 0 0 15px 0;
+	padding: 0;
+}
+
+.files .file-content .right {
+	float: right;
+}
+
+.files .file-content p {
+    font-size: 18px;
+}
+
+.files .file-content .right p {
+	text-align: right;
+	margin: 5px 0 0 0;
+}
+
+.files .file-content .heading {
+	overflow: auto;
+}
+
+.files .file-content h2 {
+	font-size: 22px;
+}
+
+.files .file-content .slider {
+	width: 50%;
+	float: left;
+	margin-top: 8px;
+}
+
+.files .file-content .rating {
+	overflow: auto;
+	margin-bottom: 15px;
+}
+
+.files .file-content .rating-value {
+	font-size: 28px;
+	font-family: MuseoSans-700, Verdana, Arial, 'Helvetica Neue', Helvetica, sans-serif;
+	float: left;
+	width: 40px;
+	margin-right: 15px;
+	text-align: center;
+}
+
+.files .file-content label {
+	font-family: MuseoSans-700, Verdana, Arial, 'Helvetica Neue', Helvetica, sans-serif;
+	margin-bottom: 5px;
+}
+
+.files .file-content textarea {
+	margin: 10px 0 0 0;
+	padding: 1%;
+	width: 97%;
+	border-radius: 10px;
+    height: 110px;
+}
+
+.files .file-content form button.blue {
+	padding: 5px 20px;
+	margin: 15px 10px 0 0;
+}
+
+.files .file-content .feedback-form {
+	overflow:auto;
+	margin-bottom: 50px;
+}
+
+.files .post-photo {
+	height: 32px;
+	width: 32px;
+	float: left;
+	margin-right: 10px;
+}
+
+.files .file-content .lawyer {
+	margin-bottom: 30px;
+	display: block;
+}
+
+.files button.change-status {
+	padding: 7px 25px;
+	margin-bottom: 30px;
+	overflow: auto;
+}
+
+/****************** feedback profile item *****************/
+
+.timeline-element.item .heading .score {
+	background-image: url(../images/score-back-positive.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	width: 75px;
+	float: left;
+	font-size: 26px;
+	margin-right: 15px;
+    position: relative;
+}
+
+.timeline-element.item .heading .score.negative {
+	background-image: url(../images/score-back-negative.png);
+}
+
+.timeline-element.item .heading .score .result {
+	float: left;
+	text-align: center;
+	width: 30px;
+	color: #00FF00;
+}
+
+.timeline-element.item .heading .score.negative .result {
+	color: #F08BA1;
+}
+
+.timeline-element.item .heading .score .out-of {
+	position: absolute;
+	left: 48px;
+	top: 5px;
+}
